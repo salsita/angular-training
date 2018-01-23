@@ -1,0 +1,22 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of (users$ | async)">
+        <td>
+          <a [routerLink]="['/users', user.id]">{{user.firstName}}</a>
+        </td>
+        <td>{{user.lastName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <a [routerLink]="['/users/create']">Add user</a>
+</div>
+<br>
+
+<router-outlet></router-outlet>

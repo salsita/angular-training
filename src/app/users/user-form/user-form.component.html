@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (submit)="$event.stopPropagation()">
+  <label>First Name</label>
+  <input
+    formControlName="firstName"
+    type="text"
+    placeholder="John"
+  />
+  <label>Last Name</label>
+  <input
+    formControlName="lastName"
+    type="text"
+    placeholder="Doe"
+  />
+  <label>E-mail</label>
+  <input
+    formControlName="email"
+    type="email"
+    placeholder="email@email.com"
+  />
+
+  <h2>Skills</h2>
+  <ul>
+    <li formArrayName="skills" *ngFor="let skillControl of form.get('skills').controls; let i = index">
+      <select [formControlName]="i">
+        <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.skill}}</option>
+      </select>
+      <button (click)="removeSkill(i)">x</button>
+    </li>
+  </ul>
+  <button type="button" (click)="addSkill()">Add skill</button>
+  <br>
+  <button type="submit">Save</button>
+</form>
