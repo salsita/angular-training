@@ -18,15 +18,17 @@ export class UsersEffects {
     private actions$: Actions<any>,
     private router: Router,
     private api: UsersApi,
-    private usersListResolver: UsersListResolver,
+    private usersListResolver: UsersListResolver
   ) {}
 
   @Effect({ dispatch: false })
-  save$ = this.actions$.ofType(usersActionTypes.SAVE_USER).pipe(
-    switchMap(({ payload: user }: { payload: User }) => this.saveUser(user)),
-    switchMap(() => this.usersListResolver.resolve()),
-    switchMap(() => this.router.navigate(['/users']))
-  );
+  save$ = this.actions$
+    .ofType(usersActionTypes.SAVE_USER)
+    .pipe(
+      switchMap(({ payload: user }: { payload: User }) => this.saveUser(user)),
+      switchMap(() => this.usersListResolver.resolve()),
+      switchMap(() => this.router.navigate(['/users']))
+    );
 
   @withLodingIndicator()
   saveUser(user) {

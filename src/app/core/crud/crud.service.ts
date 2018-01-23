@@ -9,26 +9,23 @@ import { EntityRepositoryService } from '../entity-repository/entity-repository.
 import { crudActionCreators } from './crud.actions';
 import { CrudId } from './crud.interfaces';
 
-
 @Injectable()
 export class CrudService {
+  constructor(private store: Store<any>, private repo: EntityRepositoryService) {}
 
-  constructor(
-    private store: Store<any>,
-    private repo: EntityRepositoryService,
-  ) {}
-
-  handleRequest(data$: Observable<any>, entitySchema: schema.Entity | schema.Entity[], route: string, key: string) {
+  handleRequest(
+    data$: Observable<any>,
+    entitySchema: schema.Entity | schema.Entity[],
+    route: string,
+    key: string
+  ) {
     return data$.pipe(
-      map((data) => this.repo.normalizeAndStore(data, entitySchema)),
-      tap((result) => this.storeCrudData(result, route, key))
+      map(data => this.repo.normalizeAndStore(data, entitySchema)),
+      tap(result => this.storeCrudData(result, route, key))
     );
   }
 
   storeCrudData(result: CrudId | CrudId[], route: string, key: string) {
-    this.store.dispatch(
-      crudActionCreators.entitiesFetched({ result, route, key })
-    );
+    this.store.dispatch(crudActionCreators.entitiesFetched({ result, route, key }));
   }
-
 }

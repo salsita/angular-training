@@ -45,9 +45,9 @@ export const withLodingIndicator = () => {
 
     descriptor.value = function() {
       this.store.dispatch(apiActionCreators.startLoading());
-      return oldFn.apply(this, arguments).pipe(
-        tap(() => this.store.dispatch(apiActionCreators.stopLoading()))
-      );
+      return oldFn
+        .apply(this, arguments)
+        .pipe(tap(() => this.store.dispatch(apiActionCreators.stopLoading())));
     };
   };
 };

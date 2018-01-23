@@ -6,7 +6,10 @@ import { EntityRepositoryState } from './entity-repository.interfaces';
 
 export const entityRepositoryInitialState: EntityRepositoryState<any> = {};
 
-const repositoryHasChanged = (state: EntityRepositoryState<any>, { payload }): EntityRepositoryState<any> =>
+const repositoryHasChanged = (
+  state: EntityRepositoryState<any>,
+  { payload }
+): EntityRepositoryState<any> =>
   mergeWith({}, state, payload, (objValue, srcValue) => {
     // If merging two arrays, just replace original value
     // with new one
@@ -18,6 +21,9 @@ const repositoryHasChanged = (state: EntityRepositoryState<any>, { payload }): E
     return undefined;
   });
 
-export const entityRepositoryReducer = createReducer({
-  [entityRepositoryActionTypes.REPOSITORY_HAS_CHANGED]: repositoryHasChanged
-}, entityRepositoryInitialState);
+export const entityRepositoryReducer = createReducer(
+  {
+    [entityRepositoryActionTypes.REPOSITORY_HAS_CHANGED]: repositoryHasChanged
+  },
+  entityRepositoryInitialState
+);

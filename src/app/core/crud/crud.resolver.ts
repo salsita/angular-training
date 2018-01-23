@@ -28,7 +28,9 @@ export abstract class CrudResolver implements Resolve<CrudId | CrudId[]> {
     this.data$ = this.changes$.pipe(
       withLatestFrom(getFlatRouterState(store)),
       map(([routerParams, storeParams]) => this.params(storeParams)),
-      switchMap(params => this.crud.handleRequest(this.data.apply(this, params), this.schema, this.route, this.key)),
+      switchMap(params =>
+        this.crud.handleRequest(this.data.apply(this, params), this.schema, this.route, this.key)
+      ),
       publish()
     ) as ConnectableObservable<CrudId | CrudId[]>;
 
@@ -42,9 +44,7 @@ export abstract class CrudResolver implements Resolve<CrudId | CrudId[]> {
   abstract data(...params);
 
   resolve() {
-    const resolve$ = this.blocking ?
-      this.data$.pipe(take(1)) :
-      of(null);
+    const resolve$ = this.blocking ? this.data$.pipe(take(1)) : of(null);
 
     this.changes$.next(true);
 

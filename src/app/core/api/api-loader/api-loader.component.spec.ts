@@ -6,12 +6,13 @@ describe('ApiLoaderComponent', () => {
   let component: ApiLoaderComponent;
   let fixture: ComponentFixture<ApiLoaderComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ApiLoaderComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [ApiLoaderComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ApiLoaderComponent);

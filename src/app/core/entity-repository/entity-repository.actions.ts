@@ -7,6 +7,7 @@ export const entityRepositoryActionTypes = {
 };
 
 export const entityRepositoryActionCreators = {
-  repositoryHasChanged: ActionCreatorFactory
-    .create<CrudId | CrudId[]>(entityRepositoryActionTypes.REPOSITORY_HAS_CHANGED)
+  repositoryHasChanged: ActionCreatorFactory.create<CrudId | CrudId[]>(
+    entityRepositoryActionTypes.REPOSITORY_HAS_CHANGED
+  )
 };

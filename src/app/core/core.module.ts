@@ -10,9 +10,7 @@ import { CrudService } from './crud/crud.service';
 import { EntityRepositoryService } from './entity-repository/entity-repository.service';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [ApiLoaderComponent, ApiErrorToastComponent],
   providers: [
     {
@@ -29,4 +27,4 @@ import { EntityRepositoryService } from './entity-repository/entity-repository.s
   ],
   exports: [ApiLoaderComponent, ApiErrorToastComponent]
 })
-export class CoreModule { }
+export class CoreModule {}

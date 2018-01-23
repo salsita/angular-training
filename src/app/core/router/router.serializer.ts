@@ -1,4 +1,3 @@
-
 import { RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngrx/router-store';
 

@@ -9,7 +9,8 @@ import { Skill, User } from '../users.interfaces';
 })
 export class UserFormComponent implements OnInit {
   @Input() skills: Skill[] = [];
-  @Input() user: User = {
+  @Input()
+  user: User = {
     id: '',
     firstName: '',
     lastName: '',

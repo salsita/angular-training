@@ -25,4 +25,4 @@ import { UsersApi } from './users.api';
   declarations: [UsersListComponent, UserDetailComponent, UserFormComponent, UserCreateComponent],
   providers: [UsersApi, UsersEffects, UsersListResolver, UserDetailResolver, SkillsResolver]
 })
-export class UsersModule { }
+export class UsersModule {}

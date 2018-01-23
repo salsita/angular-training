@@ -7,7 +7,6 @@ import { entityRepositoryActionCreators } from './entity-repository.actions';
 
 @Injectable()
 export class EntityRepositoryService {
-
   constructor(private store: Store<any>) {}
 
   normalizeAndStore(data: any | any[], schema: any): CrudId | CrudId[] {
@@ -16,5 +15,4 @@ export class EntityRepositoryService {
 
     return result;
   }
-
 }

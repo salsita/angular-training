@@ -6,6 +6,7 @@ export const crudActionTypes = {
 };
 
 export const crudActionCreators = {
-  entitiesFetched: ActionCreatorFactory
-    .create<EntitiesFetchedPayload>(crudActionTypes.ENTITIES_FETCHED)
+  entitiesFetched: ActionCreatorFactory.create<EntitiesFetchedPayload>(
+    crudActionTypes.ENTITIES_FETCHED
+  )
 };

@@ -5,10 +5,8 @@ import { apiErrorHandling } from '../core/api/api.decorators';
 import { CrudId } from '../core/crud/crud.interfaces';
 import { User } from './users.interfaces';
 
-
 @Injectable()
 export class UsersApi {
-
   constructor(private http: HttpClient) {}
 
   @apiErrorHandling()
@@ -27,10 +25,8 @@ export class UsersApi {
   }
 
   @apiErrorHandling()
-  saveUser({id, ...data}: User) {
-    return id ?
-      this.http.patch(`/users/${id}`, data) :
-      this.http.post('/users', data);
+  saveUser({ id, ...data }: User) {
+    return id ? this.http.patch(`/users/${id}`, data) : this.http.post('/users', data);
   }
 
   @apiErrorHandling()

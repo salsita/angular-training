@@ -12,18 +12,16 @@ export const API_BASE_URL = new InjectionToken<string>('API baseURL');
 
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
-  constructor(
-    @Inject(API_BASE_URL) private baseUrl: string,
-    private store: Store<any>
-  ) {}
+  constructor(@Inject(API_BASE_URL) private baseUrl: string, private store: Store<any>) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const finalReq = this.baseUrl && !/^https?:\/\//i.test(req.url) ?
-      req.clone({ url: `${this.baseUrl}${req.url}` }) :
-      req;
+    const finalReq =
+      this.baseUrl && !/^https?:\/\//i.test(req.url)
+        ? req.clone({ url: `${this.baseUrl}${req.url}` })
+        : req;
 
     return next.handle(finalReq).pipe(
-      catchError((err) => {
+      catchError(err => {
         if (err instanceof ApiError) {
           this.store.dispatch(
             apiActionCreators.apiError({

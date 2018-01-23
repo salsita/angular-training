@@ -20,5 +20,4 @@ export class UserCreateComponent {
   createUser(user: User) {
     this.store.dispatch(usersActionCreators.saveUser(user));
   }
-
 }

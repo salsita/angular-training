@@ -23,8 +23,11 @@ const stopLoading = (state: ApiState): ApiState => ({
   callsInProgress: state.callsInProgress - 1
 });
 
-export const apiReducer = createReducer({
-  [apiActionTypes.API_ERROR]: apiError,
-  [apiActionTypes.START_LOADING]: startLoading,
-  [apiActionTypes.STOP_LOADING]: stopLoading
-}, apiInitialState);
+export const apiReducer = createReducer(
+  {
+    [apiActionTypes.API_ERROR]: apiError,
+    [apiActionTypes.START_LOADING]: startLoading,
+    [apiActionTypes.STOP_LOADING]: stopLoading
+  },
+  apiInitialState
+);

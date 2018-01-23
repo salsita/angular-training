@@ -6,7 +6,7 @@ import { DataLoaded } from './users.actions';
 describe('usersReducer', () => {
   it('should work', () => {
     const state: Users = {};
-    const action: DataLoaded = {type: 'DATA_LOADED', payload: {}};
+    const action: DataLoaded = { type: 'DATA_LOADED', payload: {} };
     const actual = usersReducer(state, action);
     expect(actual).toEqual({});
   });

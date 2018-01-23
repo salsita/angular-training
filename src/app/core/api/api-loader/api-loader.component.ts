@@ -16,5 +16,4 @@ export class ApiLoaderComponent {
   constructor(store: Store<ApiStateRoot>) {
     this.isLoading$ = isLoading(store);
   }
-
 }

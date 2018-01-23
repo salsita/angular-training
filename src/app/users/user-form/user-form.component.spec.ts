@@ -6,12 +6,13 @@ describe('UserFormComponent', () => {
   let component: UserFormComponent;
   let fixture: ComponentFixture<UserFormComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UserFormComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [UserFormComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserFormComponent);

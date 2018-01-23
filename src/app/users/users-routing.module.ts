@@ -8,7 +8,6 @@ import { UserDetailResolver } from './user-detail/user-detail.resolver';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersListResolver } from './users-list/users-list.resolver';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -45,4 +44,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class UsersRoutingModule { }
+export class UsersRoutingModule {}

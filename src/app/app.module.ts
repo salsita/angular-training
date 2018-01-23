@@ -15,14 +15,15 @@ import { AppComponent } from './app.component';
 import { apiInitialState, apiReducer } from './core/api/api.reducer';
 import { CoreModule } from './core/core.module';
 import { crudInitialState, crudReducer } from './core/crud/crud.reducer';
-import { entityRepositoryInitialState, entityRepositoryReducer } from './core/entity-repository/entity-repository.reducer';
+import {
+  entityRepositoryInitialState,
+  entityRepositoryReducer
+} from './core/entity-repository/entity-repository.reducer';
 import { CustomRouterStateSerializer } from './core/router/router.serializer';
 import { UsersModule } from './users/users.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     // @angular
     BrowserModule,
@@ -56,7 +57,6 @@ import { UsersModule } from './users/users.module';
     CoreModule,
     AppRoutingModule,
     UsersModule
-
   ],
   providers: [
     {
@@ -66,4 +66,4 @@ import { UsersModule } from './users/users.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

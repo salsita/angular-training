@@ -4,7 +4,10 @@ import { CrudState, EntitiesFetchedPayload } from './crud.interfaces';
 
 export const crudInitialState: CrudState = {};
 
-const entitiesFetched = (state: CrudState, { payload }: { payload: EntitiesFetchedPayload }): CrudState => ({
+const entitiesFetched = (
+  state: CrudState,
+  { payload }: { payload: EntitiesFetchedPayload }
+): CrudState => ({
   ...state,
   [payload.route]: {
     ...(state[payload.route] || {}),
@@ -12,6 +15,9 @@ const entitiesFetched = (state: CrudState, { payload }: { payload: EntitiesFetch
   }
 });
 
-export const crudReducer = createReducer({
-  [crudActionTypes.ENTITIES_FETCHED]: entitiesFetched
-}, crudInitialState);
+export const crudReducer = createReducer(
+  {
+    [crudActionTypes.ENTITIES_FETCHED]: entitiesFetched
+  },
+  crudInitialState
+);

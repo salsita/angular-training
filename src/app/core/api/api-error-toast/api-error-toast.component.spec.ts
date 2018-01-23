@@ -6,12 +6,13 @@ describe('ApiErrorToastComponent', () => {
   let component: ApiErrorToastComponent;
   let fixture: ComponentFixture<ApiErrorToastComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ApiErrorToastComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [ApiErrorToastComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ApiErrorToastComponent);

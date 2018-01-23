@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/users', pathMatch: 'full' },
   {
     path: 'users',
-    loadChildren: './users/users.module#UsersModule',
+    loadChildren: './users/users.module#UsersModule'
   }
   // { path: '**', component: NotFoundPageComponent },
 ];
@@ -15,4 +15,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

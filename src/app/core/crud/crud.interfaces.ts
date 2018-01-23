@@ -6,7 +6,6 @@ export interface EntitiesFetchedPayload {
   result: CrudId | CrudId[];
 }
 
-
 export interface CrudRouteData {
   [key: string]: CrudId | CrudId[];
 }
