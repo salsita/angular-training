@@ -1,22 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" (submit)="$event.stopPropagation()">
-  <label>First Name</label>
-  <input
-    formControlName="firstName"
-    type="text"
-    placeholder="John"
-  />
-  <label>Last Name</label>
-  <input
-    formControlName="lastName"
-    type="text"
-    placeholder="Doe"
-  />
-  <label>E-mail</label>
-  <input
-    formControlName="email"
-    type="email"
-    placeholder="email@email.com"
-  />
+  <app-form-field label="First Name" [control]="form.get('firstName')"></app-form-field>
+  <app-form-field label="Last Name" [control]="form.get('lastName')"></app-form-field>
+  <app-form-field label="E-mail" [control]="form.get('email')"></app-form-field>
 
   <h2>Skills</h2>
   <ul>
@@ -29,5 +14,5 @@
   </ul>
   <button type="button" (click)="addSkill()">Add skill</button>
   <br>
-  <button type="submit">Save</button>
+  <button type="submit" [disabled]="!form.valid">Save</button>
 </form>
