@@ -31,7 +31,7 @@ export class UsersEffects {
     );
 
   @withLodingIndicator()
-  saveUser(user) {
+  saveUser(user: User) {
     return this.api.saveUser(user);
   }
 }

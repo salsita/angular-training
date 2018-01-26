@@ -1,6 +1,7 @@
 import { Resolve } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { schema } from 'normalizr';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { ConnectableObservable } from 'rxjs/observable/ConnectableObservable';
 import { of } from 'rxjs/observable/of';
@@ -37,11 +38,11 @@ export abstract class CrudResolver implements Resolve<CrudId | CrudId[]> {
     this.data$.connect();
   }
 
-  params(route: FlatRouterStateSnapshot) {
+  params(route: FlatRouterStateSnapshot): any[] {
     return [];
   }
 
-  abstract data(...params);
+  abstract data(...params: any[]): Observable<any>;
 
   resolve() {
     const resolve$ = this.blocking ? this.data$.pipe(take(1)) : of(null);

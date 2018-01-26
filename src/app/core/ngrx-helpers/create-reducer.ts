@@ -1,6 +1,10 @@
 import { Action } from '@ngrx/store';
 
-export const createReducer = <T, U extends Action>(handlers, initialState: T) => (
+interface Handlers {
+  [k: string]: Function;
+}
+
+export const createReducer = <T, U extends Action>(handlers: Handlers, initialState: T) => (
   state: T = initialState,
   action: U
 ): T => {

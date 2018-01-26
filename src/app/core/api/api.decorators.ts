@@ -6,8 +6,8 @@ import { apiActionCreators } from './api.actions';
 import { ApiError, BusinessValidationError, NETWORK_ERROR, UNKNOWN_API_ERROR } from './api.errors';
 import { HTTP_CONFLICT } from './api.status-codes';
 
-export const apiCall = () => {
-  return (target, propertyKey: string, descriptor: PropertyDescriptor): any => {
+export const apiCall = <T>() => {
+  return (target: T, propertyKey: string, descriptor: PropertyDescriptor): void => {
     const oldFn = descriptor.value;
 
     descriptor.value = function() {
@@ -40,7 +40,7 @@ interface HasStore {
 }
 
 export const withLodingIndicator = () => {
-  return (target: HasStore, propertyKey: string, descriptor: PropertyDescriptor): any => {
+  return (target: HasStore, propertyKey: string, descriptor: PropertyDescriptor): void => {
     const oldFn = descriptor.value;
 
     descriptor.value = function() {

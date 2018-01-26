@@ -1,11 +1,11 @@
-export interface ApiError {
+export interface ApiErrorPayload {
   type: string;
   reason: string;
 }
 
 export interface ApiState {
   callsInProgress: number;
-  error: ApiError;
+  error: ApiErrorPayload;
 }
 
 export interface ApiStateRoot {

@@ -15,7 +15,7 @@ export class ApiError {
 }
 
 export class BusinessValidationError extends ApiError {
-  constructor(reason) {
+  constructor(reason: string) {
     super(API_VALIDATION_ERROR, reason);
   }
 }

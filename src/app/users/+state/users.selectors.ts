@@ -6,7 +6,9 @@ import { AppState } from '../../app.interfaces';
 import { getEntityRepository } from '../../core/entity-repository/entity-repository.selectors';
 import { User } from '../users.interfaces';
 import { getCrud } from './../../core/crud/crud.selectors';
-import { SingleEntityRepository } from './../../core/entity-repository/entity-repository.interfaces';
+import {
+  SingleEntityRepository
+} from './../../core/entity-repository/entity-repository.interfaces';
 import { skillsEntity, usersEntity, usersSkillsEntity } from './users.entities';
 
 export const getSkillsRepo = (store: Store<AppState>) =>
@@ -26,7 +28,7 @@ export const getUsersRepo = (store: Store<AppState>) =>
             ...user,
             skills: user.skills
               .map(
-                userSkillId =>
+                (userSkillId: CrudId) =>
                   usersSkills[userSkillId] ? skills[usersSkills[userSkillId].skill] : null
               )
               .filter(Boolean)

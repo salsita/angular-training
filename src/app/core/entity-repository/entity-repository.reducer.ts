@@ -1,4 +1,4 @@
-import * as mergeWith from 'lodash/mergeWith';
+import { mergeWith } from 'lodash';
 
 import { createReducer } from '../ngrx-helpers/create-reducer';
 import { entityRepositoryActionTypes } from './entity-repository.actions';
@@ -8,7 +8,7 @@ export const entityRepositoryInitialState: EntityRepositoryState<any> = {};
 
 const repositoryHasChanged = (
   state: EntityRepositoryState<any>,
-  { payload }
+  { payload }: { payload: EntityRepositoryState<any> }
 ): EntityRepositoryState<any> =>
   mergeWith({}, state, payload, (objValue, srcValue) => {
     // If merging two arrays, just replace original value
