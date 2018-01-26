@@ -6,7 +6,7 @@ import { apiActionCreators } from './api.actions';
 import { ApiError, BusinessValidationError, NETWORK_ERROR, UNKNOWN_API_ERROR } from './api.errors';
 import { HTTP_CONFLICT } from './api.status-codes';
 
-export const apiErrorHandling = () => {
+export const apiCall = () => {
   return (target, propertyKey: string, descriptor: PropertyDescriptor): any => {
     const oldFn = descriptor.value;
 
