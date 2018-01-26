@@ -11,7 +11,7 @@ import { getError } from '../api.selectors';
   styleUrls: ['./api-error-toast.component.scss']
 })
 export class ApiErrorToastComponent {
-  error$: Observable<string>;
+  error$: Observable<string | null>;
 
   constructor(store: Store<ApiStateRoot>) {
     this.error$ = getError(store);

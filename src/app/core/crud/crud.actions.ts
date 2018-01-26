@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from 'ngrx-action-creator-factory';
+import { ActionCreatorFactory } from '../ngrx-helpers/action-creator-factory';
 import { EntitiesFetchedPayload } from './crud.interfaces';
 
 export const crudActionTypes = {

@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
 export class FormFieldComponent {
   @Input() label = '';
   @Input() type = 'text';
-  @Input() control: FormControl = null;
+  @Input() control: FormControl | null = null;
 
   get errors() {
     return this.control && this.control.errors && Object.keys(this.control.errors);

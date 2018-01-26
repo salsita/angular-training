@@ -12,7 +12,7 @@ import { Skill, User } from '../users.interfaces';
 })
 export class UserDetailComponent {
   skills$: Observable<Skill[]>;
-  user$: Observable<User>;
+  user$: Observable<User | null>;
 
   constructor(private store: Store<any>) {
     this.user$ = getUserDetail(store);

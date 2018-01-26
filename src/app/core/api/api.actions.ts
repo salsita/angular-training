@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from 'ngrx-action-creator-factory';
+import { ActionCreatorFactory } from '../ngrx-helpers/action-creator-factory';
 import { ApiErrorPayload } from './api.interfaces';
 
 export const apiActionTypes = {
@@ -8,7 +8,7 @@ export const apiActionTypes = {
 };
 
 export const apiActionCreators = {
-  apiError: ActionCreatorFactory.create<ApiErrorPayload>(apiActionTypes.API_ERROR),
+  apiError: ActionCreatorFactory.create<ApiErrorPayload>(apiActionTypes.API_ERROR, null),
   startLoading: ActionCreatorFactory.create<void>(apiActionTypes.START_LOADING),
   stopLoading: ActionCreatorFactory.create<void>(apiActionTypes.STOP_LOADING)
 };

@@ -15,7 +15,9 @@
       "es2017",
       "dom"
     ],
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noImplicitAny": true
+    "strictNullChecks": true
   }
 }

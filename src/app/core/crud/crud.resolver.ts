@@ -45,7 +45,7 @@ export abstract class CrudResolver implements Resolve<CrudId | CrudId[]> {
   abstract data(...params: any[]): Observable<any>;
 
   resolve() {
-    const resolve$ = this.blocking ? this.data$.pipe(take(1)) : of(null);
+    const resolve$ = this.blocking ? this.data$.pipe(take(1)) : of([]);
 
     this.changes$.next(true);
 

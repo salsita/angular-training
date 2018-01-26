@@ -5,7 +5,7 @@ export interface ApiErrorPayload {
 
 export interface ApiState {
   callsInProgress: number;
-  error: ApiErrorPayload;
+  error: ApiErrorPayload | null;
 }
 
 export interface ApiStateRoot {

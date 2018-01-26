@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from 'ngrx-action-creator-factory';
+import { ActionCreatorFactory } from '../../core/ngrx-helpers/action-creator-factory';
 import { User } from '../users.interfaces';
 
 const prefix = 'users';
