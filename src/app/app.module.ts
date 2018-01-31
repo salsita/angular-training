@@ -7,7 +7,6 @@ import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { RouterStateSerializer } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { NxModule } from '@nrwl/nx/src/nx.module';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -50,9 +49,6 @@ import { UsersModule } from './users/users.module';
     ),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
-
-    // @nx
-    NxModule.forRoot(),
 
     CoreModule,
     AppRoutingModule,
