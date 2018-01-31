@@ -9,8 +9,8 @@ export class EntityRepositoryService {
   constructor(private store: Store<any>) {}
 
   normalizeAndStore(data: any | any[], schema: any): string | string[] {
-    const { entities: repository, result } = normalize(data, schema);
-    this.store.dispatch(entityRepositoryActionCreators.repositoryHasChanged(repository));
+    const { entities, result } = normalize(data, schema);
+    this.store.dispatch(entityRepositoryActionCreators.repositoryHasChanged(entities));
 
     return result;
   }
