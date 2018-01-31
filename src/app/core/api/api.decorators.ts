@@ -10,8 +10,8 @@ export const apiCall = <T>() => {
   return (target: T, propertyKey: string, descriptor: PropertyDescriptor): void => {
     const oldFn = descriptor.value;
 
-    descriptor.value = function() {
-      return oldFn.apply(this, arguments).pipe(
+    descriptor.value = function(...args: any[]) {
+      return oldFn.apply(this, args).pipe(
         catchError(({ response, message }) => {
           if (response) {
             const { data, status } = response;
@@ -43,10 +43,10 @@ export const withLodingIndicator = () => {
   return (target: HasStore, propertyKey: string, descriptor: PropertyDescriptor): void => {
     const oldFn = descriptor.value;
 
-    descriptor.value = function() {
+    descriptor.value = function(...args: any[]) {
       this.store.dispatch(apiActionCreators.startLoading());
       return oldFn
-        .apply(this, arguments)
+        .apply(this, args)
         .pipe(tap(() => this.store.dispatch(apiActionCreators.stopLoading())));
     };
   };
