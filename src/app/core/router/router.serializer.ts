@@ -1,23 +1,19 @@
-import { RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngrx/router-store';
 
-import { ActivatedRouteSnapshot } from '@angular/router/src/router_state';
 import { FlatRouterStateSnapshot } from './router.interfaces';
 
 export class CustomRouterStateSerializer implements RouterStateSerializer<FlatRouterStateSnapshot> {
   serialize(routerState: RouterStateSnapshot): FlatRouterStateSnapshot {
-    let route: ActivatedRouteSnapshot | null = routerState.root;
-    const params = {};
+    let route: ActivatedRouteSnapshot = routerState.root;
 
-    while (route) {
-      Object.assign(params, route.params);
-      if (route.firstChild) {
-      }
+    while (route.firstChild) {
       route = route.firstChild;
     }
 
-    const { url, root: { queryParams } } = routerState;
+    const { url } = routerState;
+    const { params, queryParams, data, fragment } = route;
 
-    return { url, params, queryParams };
+    return { url, params, queryParams, data, fragment };
   }
 }
