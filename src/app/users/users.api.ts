@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { apiCall } from '../core/api/api.decorators';
-import { CrudId } from '../core/crud/crud.interfaces';
 import { User } from './users.interfaces';
 
 @Injectable()
@@ -15,12 +14,12 @@ export class UsersApi {
   }
 
   @apiCall()
-  getUser(id: CrudId) {
+  getUser(id: string) {
     return this.http.get(`/users/${id}`);
   }
 
   @apiCall()
-  deleteUser(id: CrudId) {
+  deleteUser(id: string) {
     return this.http.delete(`/users/${id}`);
   }
 

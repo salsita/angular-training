@@ -1,13 +1,11 @@
-export type CrudId = string | number;
-
 export interface EntitiesFetchedPayload {
   route: string;
   key: string;
-  result: CrudId | CrudId[];
+  result: string | string[];
 }
 
 export interface CrudRouteData {
-  [key: string]: CrudId | CrudId[];
+  [key: string]: string | string[];
 }
 
 export interface CrudState {

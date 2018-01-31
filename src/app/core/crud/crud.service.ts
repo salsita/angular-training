@@ -7,7 +7,6 @@ import { tap } from 'rxjs/operators/tap';
 
 import { EntityRepositoryService } from '../entity-repository/entity-repository.service';
 import { crudActionCreators } from './crud.actions';
-import { CrudId } from './crud.interfaces';
 
 @Injectable()
 export class CrudService {
@@ -25,7 +24,7 @@ export class CrudService {
     );
   }
 
-  storeCrudData(result: CrudId | CrudId[], route: string, key: string) {
+  storeCrudData(result: string | string[], route: string, key: string) {
     this.store.dispatch(crudActionCreators.entitiesFetched({ result, route, key }));
   }
 }

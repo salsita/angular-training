@@ -1,4 +1,3 @@
-import { CrudId } from '../crud/crud.interfaces';
 import { ActionCreatorFactory } from '../ngrx-helpers/action-creator-factory';
 
 export const entityRepositoryActionTypes = {
@@ -6,7 +5,7 @@ export const entityRepositoryActionTypes = {
 };
 
 export const entityRepositoryActionCreators = {
-  repositoryHasChanged: ActionCreatorFactory.create<CrudId | CrudId[]>(
+  repositoryHasChanged: ActionCreatorFactory.create<string | string[]>(
     entityRepositoryActionTypes.REPOSITORY_HAS_CHANGED
   )
 };

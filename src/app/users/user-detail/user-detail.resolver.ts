@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { userSchema } from '../+state/users.schema';
-import { CrudId } from '../../core/crud/crud.interfaces';
 import { CrudResolver } from '../../core/crud/crud.resolver';
 import { CrudService } from '../../core/crud/crud.service';
 import { FlatRouterStateSnapshot } from '../../core/router/router.interfaces';
@@ -23,7 +22,7 @@ export class UserDetailResolver extends CrudResolver {
     return [route.params.userId];
   }
 
-  data(userId: CrudId) {
+  data(userId: string) {
     return this.api.getUser(userId);
   }
 }

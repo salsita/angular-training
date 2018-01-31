@@ -13,17 +13,16 @@ import { withLatestFrom } from 'rxjs/operators/withLatestFrom';
 
 import { FlatRouterStateSnapshot, RouterStateRoot } from '../router/router.interfaces';
 import { getFlatRouterState } from '../router/router.selectors';
-import { CrudId } from './crud.interfaces';
 import { CrudService } from './crud.service';
 
-export abstract class CrudResolver implements Resolve<CrudId | CrudId[]> {
+export abstract class CrudResolver implements Resolve<string | string[]> {
   blocking = true;
   abstract schema: schema.Entity | schema.Entity[];
   abstract route: string;
   abstract key: string;
 
   private changes$ = new Subject();
-  private data$: ConnectableObservable<CrudId | CrudId[]>;
+  private data$: ConnectableObservable<string | string[]>;
 
   constructor(private crud: CrudService, store: Store<RouterStateRoot>) {
     this.data$ = this.changes$.pipe(
@@ -33,7 +32,7 @@ export abstract class CrudResolver implements Resolve<CrudId | CrudId[]> {
         this.crud.handleRequest(this.data.apply(this, params), this.schema, this.route, this.key)
       ),
       publish()
-    ) as ConnectableObservable<CrudId | CrudId[]>;
+    ) as ConnectableObservable<string | string[]>;
 
     this.data$.connect();
   }

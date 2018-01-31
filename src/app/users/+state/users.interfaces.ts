@@ -1,13 +1,13 @@
-import { CrudId, CrudState } from '../../core/crud/crud.interfaces';
+import { CrudState } from '../../core/crud/crud.interfaces';
 
 export interface UsersCrudState extends CrudState {
   users: {
-    skills: CrudId[];
+    skills: string[];
   };
   'users/list': {
-    users: CrudId[];
+    users: string[];
   };
   'users/detail': {
-    user: CrudId;
+    user: string;
   };
 }

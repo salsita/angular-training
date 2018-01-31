@@ -1,14 +1,11 @@
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs/observable/combineLatest';
-import { CrudId } from './../../core/crud/crud.interfaces';
 
 import { AppState } from '../../app.interfaces';
 import { getEntityRepository } from '../../core/entity-repository/entity-repository.selectors';
 import { User } from '../users.interfaces';
 import { getCrud } from './../../core/crud/crud.selectors';
-import {
-  SingleEntityRepository
-} from './../../core/entity-repository/entity-repository.interfaces';
+import { SingleEntityRepository } from './../../core/entity-repository/entity-repository.interfaces';
 import { skillsEntity, usersEntity, usersSkillsEntity } from './users.entities';
 
 export const getSkillsRepo = (store: Store<AppState>) =>
@@ -28,7 +25,7 @@ export const getUsersRepo = (store: Store<AppState>) =>
             ...user,
             skills: user.skills
               .map(
-                (userSkillId: CrudId) =>
+                (userSkillId: string) =>
                   usersSkills[userSkillId] ? skills[usersSkills[userSkillId].skill] : null
               )
               .filter(Boolean)
@@ -45,7 +42,7 @@ export const getSkills = (store: Store<AppState>) =>
     getCrud(store)
       .select('users')
       .select('skills'),
-    (skills, skillIds: CrudId[]) => skillIds.map(skillId => skills[skillId])
+    (skills, skillIds: string[]) => skillIds.map(skillId => skills[skillId])
   );
 
 export const getUsersList = (store: Store<AppState>) =>
@@ -54,7 +51,7 @@ export const getUsersList = (store: Store<AppState>) =>
     getCrud(store)
       .select('users/list')
       .select('users'),
-    (users, usersList: CrudId[]) => usersList.map(userId => users[userId])
+    (users, usersList: string[]) => usersList.map(userId => users[userId])
   );
 
 export const getUserDetail = (store: Store<AppState>) =>
@@ -64,5 +61,5 @@ export const getUserDetail = (store: Store<AppState>) =>
       state =>
         state['users/detail'] && state['users/detail'].user ? state['users/detail'].user : null
     ),
-    (users, userId: CrudId) => (userId ? users[userId] : null)
+    (users, userId: string) => (userId ? users[userId] : null)
   );
