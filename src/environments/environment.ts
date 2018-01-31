@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
+  hmr: true,
   apiBaseUrl: 'http://private-e1fc4-reacttraining1.apiary-mock.com/api/v1'
 };
