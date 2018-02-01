@@ -1,6 +1,6 @@
 <app-user-form
-  *ngIf="user$ | async; else loading"
-  [user]="user$ | async"
+  *ngIf="user$ | async as user; else loading"
+  [user]="user"
   [skills]="skills$ | async"
   (submit)="onSave($event)"
 ></app-user-form>
