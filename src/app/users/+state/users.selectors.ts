@@ -12,10 +12,8 @@ export const getSkillsRepo = (store: Store<AppState>) =>
   getEntityRepository(store).select(skillsEntity);
 export const getUsersRepo = (store: Store<AppState>) =>
   combineLatest(
-    getEntityRepository(store).select(state => (state[usersEntity] ? state[usersEntity] : [])),
-    getEntityRepository(store).select(
-      state => (state[usersSkillsEntity] ? state[usersSkillsEntity] : [])
-    ),
+    getEntityRepository(store).select(state => state[usersEntity] || []),
+    getEntityRepository(store).select(state => state[usersSkillsEntity] || []),
     getSkillsRepo(store),
     (users, usersSkills, skills): SingleEntityRepository<User> => {
       return Object.entries(users).reduce(
@@ -57,9 +55,6 @@ export const getUsersList = (store: Store<AppState>) =>
 export const getUserDetail = (store: Store<AppState>) =>
   combineLatest(
     getUsersRepo(store),
-    getCrud(store).select(
-      state =>
-        state['users/detail'] && state['users/detail'].user ? state['users/detail'].user : null
-    ),
+    getCrud(store).select(state => (state['users/detail'] && state['users/detail'].user) || null),
     (users, userId: string) => (userId ? users[userId] : null)
   );
