@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -15,13 +14,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersApi } from './users.api';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    UsersRoutingModule,
-    EffectsModule.forFeature([UsersEffects]),
-
-    SharedModule
-  ],
+  imports: [UsersRoutingModule, EffectsModule.forFeature([UsersEffects]), SharedModule],
   declarations: [UsersListComponent, UserDetailComponent, UserFormComponent, UserCreateComponent],
   providers: [UsersApi, UsersEffects, UsersListResolver, UserDetailResolver, SkillsResolver]
 })
