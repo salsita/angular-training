@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators/switchMap';
 
 import { AppState } from '../../app.interfaces';
-import { withLodingIndicator } from '../../core/api/api.decorators';
+import { withLoadingIndicator } from '../../core/api/api.decorators';
 import { UsersListResolver } from '../users-list/users-list.resolver';
 import { UsersApi } from '../users.api';
 import { User } from '../users.interfaces';
@@ -25,12 +25,12 @@ export class UsersEffects {
   save$ = this.actions$
     .ofType(usersActionTypes.SAVE_USER)
     .pipe(
-      switchMap(({ payload: user }: { payload: User }) => this.saveUser(user)),
+      switchMap(({ payload }: { payload: User }) => this.saveUser(payload)),
       switchMap(() => this.usersListResolver.resolve()),
       switchMap(() => this.router.navigate(['/users']))
     );
 
-  @withLodingIndicator()
+  @withLoadingIndicator()
   saveUser(user: User) {
     return this.api.saveUser(user);
   }

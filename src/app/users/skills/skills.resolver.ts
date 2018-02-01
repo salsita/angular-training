@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { skillSchema } from '../+state/users.schema';
-import { withLodingIndicator } from '../../core/api/api.decorators';
+import { withLoadingIndicator } from '../../core/api/api.decorators';
 import { CrudResolver } from '../../core/crud/crud.resolver';
 import { CrudService } from '../../core/crud/crud.service';
 import { UsersApi } from '../users.api';
@@ -13,11 +13,11 @@ export class SkillsResolver extends CrudResolver {
   route = 'users';
   key = 'skills';
 
-  constructor(private api: UsersApi, crud: CrudService, public store: Store<any>) {
+  constructor(private api: UsersApi, crud: CrudService, store: Store<any>) {
     super(crud, store);
   }
 
-  @withLodingIndicator()
+  @withLoadingIndicator()
   data() {
     return this.api.getSkills();
   }

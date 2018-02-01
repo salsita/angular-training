@@ -1,9 +1,7 @@
-import { Store } from '@ngrx/store';
 import { catchError } from 'rxjs/operators/catchError';
-import { tap } from 'rxjs/operators/tap';
 
-import { apiActionCreators } from './api.actions';
 import { ApiError, BusinessValidationError, NETWORK_ERROR, UNKNOWN_API_ERROR } from './api.errors';
+import { ApiService } from './api.service';
 import { HTTP_CONFLICT } from './api.status-codes';
 
 export const apiCall = <T>() => {
@@ -35,19 +33,11 @@ export const apiCall = <T>() => {
   };
 };
 
-interface HasStore {
-  store: Store<any>;
-}
-
-export const withLodingIndicator = () => {
-  return (target: HasStore, propertyKey: string, descriptor: PropertyDescriptor): void => {
+export const withLoadingIndicator = <T>() => {
+  return (target: T, propertyKey: string, descriptor: PropertyDescriptor): void => {
     const oldFn = descriptor.value;
-
     descriptor.value = function(...args: any[]) {
-      this.store.dispatch(apiActionCreators.startLoading());
-      return oldFn
-        .apply(this, args)
-        .pipe(tap(() => this.store.dispatch(apiActionCreators.stopLoading())));
+      return ApiService.startLoading(oldFn.apply(this, args));
     };
   };
 };
