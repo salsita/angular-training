@@ -1,6 +1,17 @@
+import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+
 import { RouterStateRoot } from './router.interfaces';
 
-export const getRouterState = (store: Store<RouterStateRoot>) => store.select('router');
-export const getFlatRouterState = (store: Store<RouterStateRoot>) =>
-  getRouterState(store).select('state');
+@Injectable()
+export class RouterSelectors {
+  constructor(private store: Store<RouterStateRoot>) {}
+
+  getRouterState() {
+    return this.store.select('router');
+  }
+
+  getFlatRouterState() {
+    return this.getRouterState().select('state');
+  }
+}

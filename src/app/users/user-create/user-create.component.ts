@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { usersActionCreators } from '../+state/users.actions';
-import { getSkills } from '../+state/users.selectors';
+import { UsersSelectors } from '../+state/users.selectors';
 import { Skill, User } from '../users.interfaces';
 
 @Component({
@@ -14,8 +14,8 @@ import { Skill, User } from '../users.interfaces';
 export class UserCreateComponent {
   skills$: Observable<Skill[]>;
 
-  constructor(private store: Store<any>) {
-    this.skills$ = getSkills(store);
+  constructor(private store: Store<any>, usersSelectors: UsersSelectors) {
+    this.skills$ = usersSelectors.getSkills();
   }
 
   createUser(user: User) {

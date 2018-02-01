@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiStateRoot } from '../api.interfaces';
-import { isLoading } from '../api.selectors';
+import { ApiSelectors } from '../api.selectors';
 
 @Component({
   selector: 'app-api-loader',
@@ -13,7 +11,7 @@ import { isLoading } from '../api.selectors';
 export class ApiLoaderComponent {
   isLoading$: Observable<boolean>;
 
-  constructor(store: Store<ApiStateRoot>) {
-    this.isLoading$ = isLoading(store);
+  constructor(apiSelectors: ApiSelectors) {
+    this.isLoading$ = apiSelectors.isLoading();
   }
 }

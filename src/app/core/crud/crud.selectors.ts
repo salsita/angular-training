@@ -1,5 +1,13 @@
+import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { CrudStateRoot } from './crud.interfaces';
 
-export const getCrud = (store: Store<CrudStateRoot>) => store.select('crud');
+@Injectable()
+export class CrudSelectors {
+  constructor(private store: Store<CrudStateRoot>) {}
+
+  getCrud() {
+    return this.store.select('crud');
+  }
+}

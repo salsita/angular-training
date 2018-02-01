@@ -1,60 +1,96 @@
-import { Store } from '@ngrx/store';
+import { Injectable } from '@angular/core';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 
-import { AppState } from '../../app.interfaces';
-import { getEntityRepository } from '../../core/entity-repository/entity-repository.selectors';
+import { CrudSelectors } from '../../core/crud/crud.selectors';
+import { SingleEntityRepository } from '../../core/entity-repository/entity-repository.interfaces';
+import { EntityRepositorySelectors } from '../../core/entity-repository/entity-repository.selectors';
+import { SkillsResolver } from '../skills/skills.resolver';
+import { UserDetailResolver } from '../user-detail/user-detail.resolver';
+import { UsersListResolver } from '../users-list/users-list.resolver';
 import { User } from '../users.interfaces';
-import { getCrud } from './../../core/crud/crud.selectors';
-import { SingleEntityRepository } from './../../core/entity-repository/entity-repository.interfaces';
 import { skillsEntity, usersEntity, usersSkillsEntity } from './users.entities';
 
-export const getSkillsRepo = (store: Store<AppState>) =>
-  getEntityRepository(store).select(skillsEntity);
-export const getUsersRepo = (store: Store<AppState>) =>
-  combineLatest(
-    getEntityRepository(store).select(state => state[usersEntity] || []),
-    getEntityRepository(store).select(state => state[usersSkillsEntity] || []),
-    getSkillsRepo(store),
-    (users, usersSkills, skills): SingleEntityRepository<User> => {
-      return Object.entries(users).reduce(
-        (acc, [userId, user]) => ({
-          ...acc,
-          [userId]: {
-            ...user,
-            skills: user.skills
-              .map(
-                (userSkillId: string) =>
-                  usersSkills[userSkillId] ? skills[usersSkills[userSkillId].skill] : null
-              )
-              .filter(Boolean)
-          }
-        }),
-        {}
-      );
-    }
-  );
+@Injectable()
+export class UsersSelectors {
+  constructor(
+    private entityRepositorySelectors: EntityRepositorySelectors,
+    private crudSelectors: CrudSelectors,
+    private usersListResolver: UsersListResolver,
+    private userDetailResolver: UserDetailResolver,
+    private skillsResolver: SkillsResolver
+  ) {}
 
-export const getSkills = (store: Store<AppState>) =>
-  combineLatest(
-    getSkillsRepo(store),
-    getCrud(store)
-      .select('users')
-      .select('skills'),
-    (skills, skillIds: string[]) => skillIds.map(skillId => skills[skillId])
-  );
+  getCrud() {
+    return this.crudSelectors.getCrud();
+  }
 
-export const getUsersList = (store: Store<AppState>) =>
-  combineLatest(
-    getUsersRepo(store),
-    getCrud(store)
-      .select('users/list')
-      .select('users'),
-    (users, usersList: string[]) => usersList.map(userId => users[userId])
-  );
+  getEntityRepository() {
+    return this.entityRepositorySelectors.getEntityRepository();
+  }
 
-export const getUserDetail = (store: Store<AppState>) =>
-  combineLatest(
-    getUsersRepo(store),
-    getCrud(store).select(state => (state['users/detail'] && state['users/detail'].user) || null),
-    (users, userId: string) => (userId ? users[userId] : null)
-  );
+  getSkillsRepo() {
+    return this.getEntityRepository().select(skillsEntity);
+  }
+
+  getUsersRepo() {
+    return combineLatest(
+      this.getEntityRepository().select(state => state[usersEntity] || []),
+      this.getEntityRepository().select(state => state[usersSkillsEntity] || []),
+      this.getSkillsRepo(),
+      (users, usersSkills, skills): SingleEntityRepository<User> => {
+        return Object.entries(users).reduce(
+          (acc, [userId, user]) => ({
+            ...acc,
+            [userId]: {
+              ...user,
+              skills: user.skills
+                .map(
+                  (userSkillId: string) =>
+                    usersSkills[userSkillId] ? skills[usersSkills[userSkillId].skill] : null
+                )
+                .filter(Boolean)
+            }
+          }),
+          {}
+        );
+      }
+    );
+  }
+
+  getSkills() {
+    const crudRoute = this.skillsResolver.route;
+    const crudRouteKey = this.skillsResolver.key;
+
+    return combineLatest(
+      this.getSkillsRepo(),
+      this.getCrud()
+        .select(crudRoute)
+        .select(crudRouteKey),
+      (skills, skillIds: string[]) => skillIds.map(skillId => skills[skillId])
+    );
+  }
+
+  getUsersList() {
+    const crudRoute = this.usersListResolver.route;
+    const crudRouteKey = this.usersListResolver.key;
+
+    return combineLatest(
+      this.getUsersRepo(),
+      this.getCrud()
+        .select(crudRoute)
+        .select(crudRouteKey),
+      (users, usersList: string[]) => usersList.map(userId => users[userId])
+    );
+  }
+
+  getUserDetail() {
+    const crudRoute = this.userDetailResolver.route;
+    const crudRouteKey = this.userDetailResolver.key;
+
+    return combineLatest(
+      this.getUsersRepo(),
+      this.getCrud().select(state => (state[crudRoute] && state[crudRoute][crudRouteKey]) || null),
+      (users, userId: string) => (userId ? users[userId] : null)
+    );
+  }
+}
