@@ -4,9 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FormFieldComponent } from './form-field/form-field.component';
 
+const sharedModules = [CommonModule, FormsModule, ReactiveFormsModule];
+
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [...sharedModules],
   declarations: [FormFieldComponent],
-  exports: [FormsModule, ReactiveFormsModule, FormFieldComponent]
+  exports: [FormFieldComponent, ...sharedModules]
 })
 export class SharedModule {}
