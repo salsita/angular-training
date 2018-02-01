@@ -40,7 +40,7 @@ export class UserFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       firstName: [this.user.firstName, Validators.required],
       lastName: [this.user.lastName, Validators.required],
-      email: [this.user.email, Validators.required],
+      email: [this.user.email, [Validators.required, Validators.email]],
       skills: this.formBuilder.array(this.user.skills)
     });
   }
