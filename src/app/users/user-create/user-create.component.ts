@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { usersActionCreators } from '../+state/users.actions';
@@ -8,7 +8,8 @@ import { Skill, User } from '../users.interfaces';
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.scss']
+  styleUrls: ['./user-create.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserCreateComponent {
   skills$: Observable<Skill[]>;
