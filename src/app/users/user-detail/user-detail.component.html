@@ -1,0 +1,9 @@
+<app-user-form
+  *ngIf="user$ | async as user; else loading"
+  [user]="user"
+  [skills]="skills$ | async"
+  (submit)="onSave($event)"
+></app-user-form>
+<ng-template #loading>
+  Loading user...
+</ng-template>
