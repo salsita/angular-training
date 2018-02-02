@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 
-import { CrudSelectors } from '../../core/crud/crud.selectors';
-import { SingleEntityRepository } from '../../core/entity-repository/entity-repository.interfaces';
-import { EntityRepositorySelectors } from '../../core/entity-repository/entity-repository.selectors';
+import { CrudSelectors } from '../../core/crud';
+import { EntityRepositorySelectors, SingleEntityRepository } from '../../core/entity-repository';
 import { SkillsResolver } from '../skills/skills.resolver';
 import { UserDetailResolver } from '../user-detail/user-detail.resolver';
 import { UsersListResolver } from '../users-list/users-list.resolver';

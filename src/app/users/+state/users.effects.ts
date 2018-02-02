@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators/switchMap';
 
 import { AppState } from '../../app.interfaces';
-import { withLoadingIndicator } from '../../core/api/api.decorators';
+import { withLoadingIndicator } from '../../core/api';
 import { UsersListResolver } from '../users-list/users-list.resolver';
 import { UsersApi } from '../users.api';
 import { User } from '../users.interfaces';

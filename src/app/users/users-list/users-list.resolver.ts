@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { userSchema } from '../+state/users.schema';
-import { withLoadingIndicator } from '../../core/api/api.decorators';
-import { CrudResolver } from '../../core/crud/crud.resolver';
-import { CrudService } from '../../core/crud/crud.service';
-import { RouterSelectors } from '../../core/router/router.selectors';
+import { withLoadingIndicator } from '../../core/api';
+import { CrudResolver, CrudService } from '../../core/crud';
+import { RouterSelectors } from '../../core/router';
 import { UsersApi } from '../users.api';
 
 @Injectable()
