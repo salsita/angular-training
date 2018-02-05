@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiStateRoot } from '../api.interfaces';
-import { getError } from '../api.selectors';
+import { ApiSelectors } from '../api.selectors';
 
 @Component({
   selector: 'app-api-error-toast',
@@ -13,7 +11,7 @@ import { getError } from '../api.selectors';
 export class ApiErrorToastComponent {
   error$: Observable<string | null>;
 
-  constructor(store: Store<ApiStateRoot>) {
-    this.error$ = getError(store);
+  constructor(apiSelectors: ApiSelectors) {
+    this.error$ = apiSelectors.getError();
   }
 }

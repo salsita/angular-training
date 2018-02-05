@@ -6,9 +6,13 @@ import { environment } from '../../environments/environment';
 import { ApiErrorToastComponent } from './api/api-error-toast/api-error-toast.component';
 import { ApiLoaderComponent } from './api/api-loader/api-loader.component';
 import { APIInterceptor, API_BASE_URL } from './api/api.interceptor';
+import { ApiSelectors } from './api/api.selectors';
 import { ApiService } from './api/api.service';
+import { CrudSelectors } from './crud/crud.selectors';
 import { CrudService } from './crud/crud.service';
+import { EntityRepositorySelectors } from './entity-repository/entity-repository.selectors';
 import { EntityRepositoryService } from './entity-repository/entity-repository.service';
+import { RouterSelectors } from './router/router.selectors';
 
 @NgModule({
   imports: [CommonModule],
@@ -29,9 +33,13 @@ import { EntityRepositoryService } from './entity-repository/entity-repository.s
       provide: API_BASE_URL,
       useValue: environment.apiBaseUrl
     },
+    ApiSelectors,
     ApiService,
+    CrudSelectors,
     CrudService,
-    EntityRepositoryService
+    EntityRepositorySelectors,
+    EntityRepositoryService,
+    RouterSelectors
   ],
   exports: [ApiLoaderComponent, ApiErrorToastComponent]
 })

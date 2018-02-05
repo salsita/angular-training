@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { getUsersList } from '../+state/users.selectors';
-import { AppState } from '../../app.interfaces';
+import { UsersSelectors } from '../+state/users.selectors';
 import { User } from '../users.interfaces';
 
 @Component({
@@ -15,7 +13,7 @@ import { User } from '../users.interfaces';
 export class UsersListComponent {
   users$: Observable<User[]>;
 
-  constructor(store: Store<AppState>) {
-    this.users$ = getUsersList(store);
+  constructor(usersSelectors: UsersSelectors) {
+    this.users$ = usersSelectors.getUsersList();
   }
 }
