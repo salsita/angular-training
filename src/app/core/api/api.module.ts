@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
-import { RouterStateSerializer } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 
-import { CustomRouterStateSerializer } from '../router/router.serializer';
 import { ApiErrorToastComponent } from './api-error-toast/api-error-toast.component';
 import { ApiLoaderComponent } from './api-loader/api-loader.component';
 import { APIInterceptor, API_BASE_URL } from './api.interceptor';
@@ -36,10 +34,6 @@ export class ApiModule {
           provide: HTTP_INTERCEPTORS,
           useClass: APIInterceptor,
           multi: true
-        },
-        {
-          provide: RouterStateSerializer,
-          useClass: CustomRouterStateSerializer
         },
         {
           provide: APP_INITIALIZER,
