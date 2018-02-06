@@ -3,22 +3,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
-import { RouterStateSerializer } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { apiInitialState, apiReducer } from './core/api/api.reducer';
+import { ApiModule } from './core/api';
 import { CoreModule } from './core/core.module';
-import { crudInitialState, crudReducer } from './core/crud/crud.reducer';
-import {
-  entityRepositoryInitialState,
-  entityRepositoryReducer
-} from './core/entity-repository/entity-repository.reducer';
-import { CustomRouterStateSerializer } from './core/router/router.serializer';
+import { CrudModule } from './core/crud';
+import { EntityRepositoryModule } from './core/entity-repository';
+import { RouterModule } from './core/router';
 import { UsersModule } from './users/users.module';
 
 @NgModule({
@@ -31,35 +26,18 @@ import { UsersModule } from './users/users.module';
 
     // @nrgx
     EffectsModule.forRoot([]),
-    StoreModule.forRoot(
-      {
-        api: apiReducer,
-        crud: crudReducer,
-        entityRepository: entityRepositoryReducer,
-        router: routerReducer
-      },
-      {
-        initialState: {
-          api: apiInitialState,
-          entityRepository: entityRepositoryInitialState,
-          crud: crudInitialState,
-          router: {}
-        }
-      }
-    ),
-    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    StoreModule.forRoot({}),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
 
+    ApiModule.forRoot(environment.apiBaseUrl),
+    CrudModule,
+    EntityRepositoryModule,
+    RouterModule,
     CoreModule,
     AppRoutingModule,
     UsersModule
   ],
-  providers: [
-    {
-      provide: RouterStateSerializer,
-      useClass: CustomRouterStateSerializer
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

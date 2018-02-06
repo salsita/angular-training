@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { userSchema } from '../+state/users.schema';
-import { CrudResolver } from '../../core/crud/crud.resolver';
-import { CrudService } from '../../core/crud/crud.service';
-import { FlatRouterStateSnapshot } from '../../core/router/router.interfaces';
-import { RouterSelectors } from '../../core/router/router.selectors';
+import { CrudResolver, CrudService } from '../../core/crud';
+import { FlatRouterStateSnapshot, RouterSelectors } from '../../core/router';
 import { UsersApi } from '../users.api';
 
 @Injectable()

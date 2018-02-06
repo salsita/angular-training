@@ -1,6 +1,6 @@
-import { ApiState } from './core/api/api.interfaces';
-import { CrudStateRoot } from './core/crud/crud.interfaces';
-import { EntityRepositoryStateRoot } from './core/entity-repository/entity-repository.interfaces';
-import { RouterState } from './core/router/router.interfaces';
+import { ApiStateRoot } from './core/api';
+import { CrudStateRoot } from './core/crud';
+import { EntityRepositoryStateRoot } from './core/entity-repository';
+import { RouterState } from './core/router';
 
-export type AppState = ApiState & CrudStateRoot & EntityRepositoryStateRoot & RouterState;
+export type AppState = ApiStateRoot & CrudStateRoot & EntityRepositoryStateRoot & RouterState;

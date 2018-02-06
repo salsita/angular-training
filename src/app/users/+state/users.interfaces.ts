@@ -1,4 +1,4 @@
-import { CrudState } from '../../core/crud/crud.interfaces';
+import { CrudState } from '../../core/crud';
 
 export interface UsersCrudState extends CrudState {
   users: {
