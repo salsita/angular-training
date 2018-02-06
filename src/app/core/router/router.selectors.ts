@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { RouterStateRoot } from './router.interfaces';
+import { RouterState } from './router.interfaces';
+import { ROUTER_STORE_NAMESPACE } from './router.tokens';
 
 @Injectable()
 export class RouterSelectors {
-  constructor(private store: Store<RouterStateRoot>) {}
+  constructor(
+    @Inject(ROUTER_STORE_NAMESPACE) private namespace: string,
+    private store: Store<any>
+  ) {}
 
   getRouterState() {
-    return this.store.select('router');
+    return this.store.select(this.namespace) as Store<RouterState>;
   }
 
   getFlatRouterState() {

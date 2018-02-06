@@ -1,3 +1,8 @@
+export interface ApiModuleConfig {
+  storeNamespace: string;
+  baseUrl?: string;
+}
+
 export interface ApiErrorPayload {
   type: string;
   reason: string;
