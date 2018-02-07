@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
+import { UsersSelectors } from '../+state/users.selectors';
 import { UsersListComponent } from './users-list.component';
+
+const usersSelectorsStub = {
+  getUsersList: () => {}
+};
 
 describe('UsersListComponent', () => {
   let component: UsersListComponent;
@@ -9,7 +15,9 @@ describe('UsersListComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [UsersListComponent]
+        declarations: [UsersListComponent],
+        schemas: [NO_ERRORS_SCHEMA],
+        providers: [{ provide: UsersSelectors, useValue: usersSelectorsStub }]
       }).compileComponents();
     })
   );

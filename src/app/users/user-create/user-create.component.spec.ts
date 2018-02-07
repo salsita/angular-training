@@ -1,6 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
 
+import { UsersSelectors } from '../+state/users.selectors';
 import { UserCreateComponent } from './user-create.component';
+
+const storeStub = {
+  dispatch: () => {}
+};
+
+const usersSelectorsStub = {
+  getSkills: () => {}
+};
 
 describe('UserCreateComponent', () => {
   let component: UserCreateComponent;
@@ -9,7 +20,12 @@ describe('UserCreateComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [UserCreateComponent]
+        declarations: [UserCreateComponent],
+        schemas: [NO_ERRORS_SCHEMA],
+        providers: [
+          { provide: UsersSelectors, useValue: usersSelectorsStub },
+          { provide: Store, useValue: storeStub }
+        ]
       }).compileComponents();
     })
   );

@@ -1,4 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { UserFormComponent } from './user-form.component';
 
@@ -9,7 +11,9 @@ describe('UserFormComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [UserFormComponent]
+        imports: [ReactiveFormsModule],
+        declarations: [UserFormComponent],
+        schemas: [NO_ERRORS_SCHEMA]
       }).compileComponents();
     })
   );
