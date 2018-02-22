@@ -1,4 +1,5 @@
 export {
+  EntityRepositoryModuleConfig,
   EntityRepositoryState,
   EntityRepositoryStateRoot,
   SingleEntityRepository

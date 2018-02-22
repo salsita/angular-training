@@ -1,3 +1,7 @@
+export interface CrudModuleConfig {
+  storeNamespace: string;
+}
+
 export interface EntitiesFetchedPayload {
   route: string;
   key: string;

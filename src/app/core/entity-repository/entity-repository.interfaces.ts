@@ -1,3 +1,7 @@
+export interface EntityRepositoryModuleConfig {
+  storeNamespace: string;
+}
+
 export interface SingleEntityRepository<T> {
   [id: string]: T;
 }

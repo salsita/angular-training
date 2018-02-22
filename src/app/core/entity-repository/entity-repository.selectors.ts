@@ -1,13 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { EntityRepositoryStateRoot } from './entity-repository.interfaces';
+import { EntityRepositoryState } from './entity-repository.interfaces';
+import { ENTITY_REPOSITORY_STORE_NAMESPACE } from './entity-repository.tokens';
 
 @Injectable()
 export class EntityRepositorySelectors {
-  constructor(private store: Store<EntityRepositoryStateRoot>) {}
+  constructor(
+    @Inject(ENTITY_REPOSITORY_STORE_NAMESPACE) private namespace: string,
+    private store: Store<any>
+  ) {}
 
   getEntityRepository() {
-    return this.store.select('entityRepository');
+    return this.store.select(this.namespace) as Store<EntityRepositoryState<any>>;
   }
 }

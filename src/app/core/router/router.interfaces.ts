@@ -1,5 +1,9 @@
 import { Data, Params } from '@angular/router';
 
+export interface RouterModuleConfig {
+  storeNamespace: string;
+}
+
 export interface FlatRouterStateSnapshot {
   url: string;
   params: Params;
