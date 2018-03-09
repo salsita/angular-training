@@ -3,18 +3,11 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 
 import { UsersSelectors } from '../+state/users.selectors';
+import { MockStore } from '../../core/ngrx-helpers/testing';
+import { MockUsersSelectors } from '../testing';
 import { UserCreateComponent } from './user-create.component';
 
-const storeStub = {
-  dispatch: () => {}
-};
-
-const usersSelectorsStub = {
-  getSkills: () => {}
-};
-
 describe('UserCreateComponent', () => {
-  let component: UserCreateComponent;
   let fixture: ComponentFixture<UserCreateComponent>;
 
   beforeEach(
@@ -23,8 +16,8 @@ describe('UserCreateComponent', () => {
         declarations: [UserCreateComponent],
         schemas: [NO_ERRORS_SCHEMA],
         providers: [
-          { provide: UsersSelectors, useValue: usersSelectorsStub },
-          { provide: Store, useValue: storeStub }
+          { provide: UsersSelectors, useClass: MockUsersSelectors },
+          { provide: Store, useValue: MockStore }
         ]
       }).compileComponents();
     })
@@ -32,11 +25,10 @@ describe('UserCreateComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserCreateComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render user form', () => {
+    expect(fixture).toMatchSnapshot();
   });
 });

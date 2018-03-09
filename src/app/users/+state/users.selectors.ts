@@ -19,19 +19,19 @@ export class UsersSelectors {
     private skillsResolver: SkillsResolver
   ) {}
 
-  getCrud() {
+  private getCrud() {
     return this.crudSelectors.getCrud();
   }
 
-  getEntityRepository() {
+  private getEntityRepository() {
     return this.entityRepositorySelectors.getEntityRepository();
   }
 
-  getSkillsRepo() {
+  private getSkillsRepo() {
     return this.getEntityRepository().select(skillsEntity);
   }
 
-  getUsersRepo() {
+  private getUsersRepo() {
     return combineLatest(
       this.getEntityRepository().select(state => state[usersEntity] || []),
       this.getEntityRepository().select(state => state[usersSkillsEntity] || []),

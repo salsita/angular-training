@@ -2,6 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { skills, userDetail } from '../testing/user.selectors.mock';
 import { UserFormComponent } from './user-form.component';
 
 describe('UserFormComponent', () => {
@@ -21,10 +22,20 @@ describe('UserFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserFormComponent);
     component = fixture.componentInstance;
+    component.skills = skills();
+    component.user = userDetail();
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render user form and handle add/remove skills', () => {
+    expect(fixture).toMatchSnapshot();
+
+    component.removeSkill(0);
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
+
+    component.addSkill();
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
   });
 });

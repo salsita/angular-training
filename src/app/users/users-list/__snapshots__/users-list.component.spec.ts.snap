@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersListComponent render list of users 1`] = `
+<app-users-list
+  users$={[Function Observable]}
+>
+  <div>
+    
+    
+    <table>
+      
+      
+      <thead>
+        
+        
+        <tr>
+          
+          
+          <th>
+            First Name
+          </th>
+          
+          
+          <th>
+            Last Name
+          </th>
+          
+        
+        </tr>
+        
+      
+      </thead>
+      
+      
+      <tbody>
+        
+        
+        
+        <tr>
+          
+          
+          <td>
+            
+            
+            <a>
+              John
+            </a>
+            
+          
+          </td>
+          
+          
+          <td>
+            Doe
+          </td>
+          
+        
+        </tr>
+        <tr>
+          
+          
+          <td>
+            
+            
+            <a>
+              John
+            </a>
+            
+          
+          </td>
+          
+          
+          <td>
+            Stiles
+          </td>
+          
+        
+        </tr>
+        
+      
+      </tbody>
+      
+    
+    </table>
+    
+    
+    <a>
+      Add user
+    </a>
+    
+  
+  </div>
+  <br />
+  
+  <router-outlet />
+  
+</app-users-list>
+`;
