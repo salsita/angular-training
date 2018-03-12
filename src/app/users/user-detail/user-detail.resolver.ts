@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { userSchema } from '../+state/users.schema';
 import { CrudResolver, CrudService } from '../../core/crud';
-import { FlatRouterStateSnapshot, RouterSelectors } from '../../core/router';
+import { FlatRouterStateSnapshot } from '../../core/router';
 import { UsersApi } from '../users.api';
 
 @Injectable()
@@ -12,8 +12,8 @@ export class UserDetailResolver extends CrudResolver {
   route = 'users/detail';
   key = 'user';
 
-  constructor(private api: UsersApi, crud: CrudService, routerSelectors: RouterSelectors) {
-    super(crud, routerSelectors);
+  constructor(private api: UsersApi, crud: CrudService) {
+    super(crud);
   }
 
   params(route: FlatRouterStateSnapshot) {
