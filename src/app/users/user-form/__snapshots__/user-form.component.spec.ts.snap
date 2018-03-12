@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserFormComponent should render user form and handle add/remove skills 1`] = `
+exports[`UserFormComponent should add skill 1`] = `
 <app-user-form
   form={[Function FormGroup]}
   formBuilder={[Function FormBuilder]}
@@ -114,6 +114,43 @@ exports[`UserFormComponent should render user form and handle add/remove skills 
         
       
       </li>
+      <li
+        class="ng-untouched ng-pristine ng-valid"
+        formarrayname="skills"
+        ng-reflect-name="skills"
+      >
+        
+        
+        <select
+          class="ng-untouched ng-pristine ng-valid"
+          ng-reflect-name="2"
+        >
+          
+          
+          
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="0: Object"
+          >
+            JavaScript
+          </option>
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="1: Object"
+          >
+            PostgreSQL
+          </option>
+          
+        
+        </select>
+        
+        
+        <button>
+          x
+        </button>
+        
+      
+      </li>
       
     
     </ul>
@@ -141,7 +178,7 @@ exports[`UserFormComponent should render user form and handle add/remove skills 
 </app-user-form>
 `;
 
-exports[`UserFormComponent should render user form and handle add/remove skills 2`] = `
+exports[`UserFormComponent should remove skill 1`] = `
 <app-user-form
   form={[Function FormGroup]}
   formBuilder={[Function FormBuilder]}
@@ -245,7 +282,7 @@ exports[`UserFormComponent should render user form and handle add/remove skills 
 </app-user-form>
 `;
 
-exports[`UserFormComponent should render user form and handle add/remove skills 3`] = `
+exports[`UserFormComponent should render user form 1`] = `
 <app-user-form
   form={[Function FormGroup]}
   formBuilder={[Function FormBuilder]}

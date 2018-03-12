@@ -27,13 +27,17 @@ describe('UserFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should render user form and handle add/remove skills', () => {
+  it('should render user form', () => {
     expect(fixture).toMatchSnapshot();
+  });
 
+  it('should remove skill', () => {
     component.removeSkill(0);
     fixture.detectChanges();
     expect(fixture).toMatchSnapshot();
+  });
 
+  it('should add skill', () => {
     component.addSkill();
     fixture.detectChanges();
     expect(fixture).toMatchSnapshot();
