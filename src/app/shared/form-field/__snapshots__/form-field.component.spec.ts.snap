@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFieldComponent should create 1`] = `
+<app-form-field
+  control={[Function FormControl]}
+  label={[Function String]}
+  type={[Function String]}
+>
+  <label>
+    Label
+  </label>
+  <input
+    class="ng-untouched ng-pristine ng-valid"
+    ng-reflect-form="[object Object]"
+    placeholder="Label"
+    type="text"
+  />
+  
+  
+</app-form-field>
+`;

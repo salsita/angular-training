@@ -1,38 +1,30 @@
-import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { FormFieldComponent } from './form-field.component';
 
-@Component({
-  selector: 'app-host-component',
-  template: `<app-form-field [label]="label" [control]="control"></app-form-field>`
-})
-class TestHostComponent {
-  label = 'Label';
-  control = new FormControl();
-}
-
 describe('FormFieldComponent', () => {
-  let component: TestHostComponent;
-  let fixture: ComponentFixture<TestHostComponent>;
+  let component: FormFieldComponent;
+  let fixture: ComponentFixture<FormFieldComponent>;
 
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
         imports: [ReactiveFormsModule],
-        declarations: [FormFieldComponent, TestHostComponent]
+        declarations: [FormFieldComponent]
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestHostComponent);
+    fixture = TestBed.createComponent(FormFieldComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    component.label = 'Label';
+    component.control = new FormControl();
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
   });
 });
