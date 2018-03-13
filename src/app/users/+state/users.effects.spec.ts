@@ -2,25 +2,26 @@ import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { StoreModule } from '@ngrx/store';
+import { hot } from '@nrwl/nx/testing';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-// import { hot, readAll } from '@nrwl/nx/testing';
 
 import { UsersListResolver } from '../users-list/users-list.resolver';
 import { UsersApi } from '../users.api';
+import { usersActionCreators } from './users.actions';
 import { UsersEffects } from './users.effects';
 
 const usersApiStub = {};
 const routerStub = {
-  navigate: () => Promise.resolve()
+  navigate: jest.fn(() => Promise.resolve())
 };
 
 const usersListResolverStub = {
-  resolve: () => Promise.resolve()
+  resolve: jest.fn(() => Promise.resolve())
 };
 
 describe('UsersEffects', () => {
-  const actions: Observable<any> = of();
+  let actions: Observable<any> = of();
   let effects: UsersEffects;
 
   beforeEach(() => {
@@ -40,15 +41,12 @@ describe('UsersEffects', () => {
 
   describe('save$', () => {
     it('should work', async () => {
-      // TODO: test that it actually did something
-      // We could also rewrite the effect to return some action (eg. Router `GO` action)
-      // const saveAction = usersActionCreators.saveUser();
-      // effects.saveUser = () => of({});
+      actions = hot('-a-|', { a: usersActionCreators.saveUser() });
 
-      // actions = hot('-a-|', { a: saveAction });
-      // await readAll(effects.save$);
-
-      expect(true).toEqual(true);
+      effects.saveUser = jest.fn(() => Promise.resolve());
+      effects.save$.subscribe(() => {
+        expect(effects.saveUser).toHaveBeenCalled();
+      });
     });
   });
 });
