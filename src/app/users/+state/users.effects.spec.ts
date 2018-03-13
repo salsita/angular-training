@@ -1,27 +1,52 @@
-// import { TestBed } from '@angular/core/testing';
-// import { provideMockActions } from '@ngrx/effects/testing';
-// import { StoreModule } from '@ngrx/store';
-// import { DataPersistence } from '@nrwl/nx';
-// import { hot, readAll } from '@nrwl/nx/testing';
-// import { UsersEffects } from './users.effects';
+import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { provideMockActions } from '@ngrx/effects/testing';
+import { StoreModule } from '@ngrx/store';
+import { hot } from '@nrwl/nx/testing';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
-// describe('UsersEffects', () => {
-//   const actions = null;
-//   let effects: UsersEffects;
+import { UsersListResolver } from '../users-list/users-list.resolver';
+import { UsersApi } from '../users.api';
+import { usersActionCreators } from './users.actions';
+import { UsersEffects } from './users.effects';
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       imports: [StoreModule.forRoot({})],
-//       providers: [UsersEffects, DataPersistence, provideMockActions(() => actions)]
-//     });
+const usersApiStub = {};
+const routerStub = {
+  navigate: jest.fn(() => Promise.resolve())
+};
 
-//     effects = TestBed.get(UsersEffects);
-//   });
+const usersListResolverStub = {
+  resolve: jest.fn(() => Promise.resolve())
+};
 
-//   describe('someEffect', () => {
-//     it('should work', async () => {
-//       actions = hot('-a-|', { a: { type: 'LOAD_DATA' } });
-//       expect(await readAll(effects.loadData)).toEqual([{ type: 'DATA_LOADED', payload: {} }]);
-//     });
-//   });
-// });
+describe('UsersEffects', () => {
+  let actions: Observable<any> = of();
+  let effects: UsersEffects;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [StoreModule.forRoot({})],
+      providers: [
+        provideMockActions(() => actions),
+        UsersEffects,
+        { provide: UsersApi, useValue: usersApiStub },
+        { provide: Router, useValue: routerStub },
+        { provide: UsersListResolver, useValue: usersListResolverStub }
+      ]
+    });
+
+    effects = TestBed.get(UsersEffects);
+  });
+
+  describe('save$', () => {
+    it('should work', async () => {
+      actions = hot('-a-|', { a: usersActionCreators.saveUser() });
+
+      effects.saveUser = jest.fn(() => Promise.resolve());
+      effects.save$.subscribe(() => {
+        expect(effects.saveUser).toHaveBeenCalled();
+      });
+    });
+  });
+});

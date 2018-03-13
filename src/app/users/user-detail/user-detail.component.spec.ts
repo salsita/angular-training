@@ -1,26 +1,34 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
 
+import { UsersSelectors } from '../+state/users.selectors';
+import { MockStore } from '../../core/ngrx-helpers/testing';
+import { MockUsersSelectors } from '../testing';
 import { UserDetailComponent } from './user-detail.component';
 
 describe('UserDetailComponent', () => {
-  let component: UserDetailComponent;
   let fixture: ComponentFixture<UserDetailComponent>;
 
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [UserDetailComponent]
+        declarations: [UserDetailComponent],
+        schemas: [NO_ERRORS_SCHEMA],
+        providers: [
+          { provide: UsersSelectors, useClass: MockUsersSelectors },
+          { provide: Store, useValue: MockStore }
+        ]
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserDetailComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render user form', () => {
+    expect(fixture).toMatchSnapshot();
   });
 });

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { FormFieldComponent } from './form-field.component';
 
@@ -9,6 +10,7 @@ describe('FormFieldComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
+        imports: [ReactiveFormsModule],
         declarations: [FormFieldComponent]
       }).compileComponents();
     })
@@ -17,10 +19,12 @@ describe('FormFieldComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FormFieldComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    component.label = 'Label';
+    component.control = new FormControl();
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
   });
 });

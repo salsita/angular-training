@@ -8,7 +8,7 @@ import { API_STORE_NAMESPACE } from './api.tokens';
 export class ApiSelectors {
   constructor(@Inject(API_STORE_NAMESPACE) private namespace: string, private store: Store<any>) {}
 
-  getApi() {
+  private getApi() {
     return this.store.select(this.namespace) as Store<ApiState>;
   }
 
