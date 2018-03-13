@@ -3,14 +3,22 @@ import { Store } from '@ngrx/store';
 import { schema } from 'normalizr';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
+import { switchMap } from 'rxjs/operators/switchMap';
+import { take } from 'rxjs/operators/take';
 import { tap } from 'rxjs/operators/tap';
 
 import { EntityRepositoryService } from '../entity-repository/entity-repository.service';
+import { RouterSelectors } from '../router/router.selectors';
 import { crudActionCreators } from './crud.actions';
+import { CrudResolver } from './crud.resolver';
 
 @Injectable()
 export class CrudService {
-  constructor(private store: Store<any>, private repo: EntityRepositoryService) {}
+  constructor(
+    private store: Store<any>,
+    private repo: EntityRepositoryService,
+    private routerSelectors: RouterSelectors
+  ) {}
 
   handleRequest(
     data$: Observable<any>,
@@ -26,5 +34,22 @@ export class CrudService {
 
   storeCrudData(result: string | string[], route: string, key: string) {
     this.store.dispatch(crudActionCreators.entitiesFetched({ result, route, key }));
+  }
+
+  resolve<T extends CrudResolver>(resolver: T): Observable<any> {
+    return this.routerSelectors
+      .getFlatRouterState()
+      .pipe(
+        take(1),
+        map(storeParams => resolver.params(storeParams)),
+        switchMap(params =>
+          this.handleRequest(
+            resolver.data(...params),
+            resolver.schema,
+            resolver.route,
+            resolver.key
+          )
+        )
+      );
   }
 }
