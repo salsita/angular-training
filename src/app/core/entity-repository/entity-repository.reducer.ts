@@ -4,7 +4,7 @@ import { createReducer } from '../ngrx-helpers/create-reducer';
 import { entityRepositoryActionTypes } from './entity-repository.actions';
 import { EntityRepositoryState } from './entity-repository.interfaces';
 
-export const entityRepositoryInitialState: EntityRepositoryState<any> = {};
+const entityRepositoryInitialState: EntityRepositoryState<any> = {};
 
 const repositoryHasChanged = (
   state: EntityRepositoryState<any>,

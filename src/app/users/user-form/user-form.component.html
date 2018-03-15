@@ -4,7 +4,7 @@
   <app-form-field label="E-mail" [control]="form.get('email')"></app-form-field>
 
   <h2>Skills</h2>
-  <ul>
+  <ul *ngIf="form">
     <li formArrayName="skills" *ngFor="let skillControl of form.get('skills').controls; let i = index">
       <select [formControlName]="i">
         <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.skill}}</option>

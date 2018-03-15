@@ -28,11 +28,11 @@ export class CrudService {
   ) {
     return data$.pipe(
       map(data => this.repo.normalizeAndStore(data, entitySchema)),
-      tap(result => this.storeCrudData(result, route, key))
+      tap(result => this.storeCrudData(route, key, result))
     );
   }
 
-  storeCrudData(result: string | string[], route: string, key: string) {
+  storeCrudData(route: string, key: string, result: string | string[]) {
     this.store.dispatch(crudActionCreators.entitiesFetched({ result, route, key }));
   }
 

@@ -3,7 +3,7 @@ import { createReducer } from './../ngrx-helpers/create-reducer';
 import { apiActionTypes } from './api.actions';
 import { ApiErrorPayload, ApiState } from './api.interfaces';
 
-export const apiInitialState: ApiState = {
+const apiInitialState: ApiState = {
   callsInProgress: 0,
   error: null
 };

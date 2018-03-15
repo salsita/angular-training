@@ -1,6 +1,6 @@
 export interface ApiModuleConfig {
   storeNamespace: string;
-  baseUrl?: string;
+  baseUrl?: string | null;
 }
 
 export interface ApiErrorPayload {

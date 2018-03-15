@@ -8,7 +8,7 @@ import {
 } from '@ngrx/store';
 
 import { CrudModuleConfig } from './crud.interfaces';
-import { crudInitialState, crudReducer } from './crud.reducer';
+import { crudReducer } from './crud.reducer';
 import { CrudSelectors } from './crud.selectors';
 import { CrudService } from './crud.service';
 import { CRUD_STORE_NAMESPACE } from './crud.tokens';
@@ -33,8 +33,7 @@ export class CrudModule {
           useValue: {
             key: storeNamespace,
             reducerFactory: combineReducers,
-            metaReducers: [],
-            initialState: crudInitialState
+            metaReducers: []
           }
         },
         {

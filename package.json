@@ -10,7 +10,7 @@
     "test:watch": "jest --watch",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "precommit-lint": "tslint --type-check --project tsconfig.json --config tslint.json --format stylish",
+    "precommit-lint": "ng lint",
     "precommit": "lint-staged"
   },
   "private": true,
@@ -30,6 +30,7 @@
     "@ngrx/store": "4.1.1",
     "@ngrx/store-devtools": "4.1.1",
     "core-js": "^2.4.1",
+    "jest-marbles": "^1.0.6",
     "lodash": "^4.17.4",
     "normalizr": "^3.2.4",
     "rxjs": "^5.5.2",

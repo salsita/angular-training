@@ -2,7 +2,7 @@ import { createReducer } from './../ngrx-helpers/create-reducer';
 import { crudActionTypes } from './crud.actions';
 import { CrudState, EntitiesFetchedPayload } from './crud.interfaces';
 
-export const crudInitialState: CrudState = {};
+const crudInitialState: CrudState = {};
 
 const entitiesFetched = (
   state: CrudState,
