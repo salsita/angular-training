@@ -1,35 +1,10 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
   "project": {
-    "name": "angular-training"
+    "name": "angular-training-mono",
+    "npmScope": "angular-training-mono",
+    "latestMigration": "20180227-cleanup-scripts"
   },
-  "apps": [
-    {
-      "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "styles.scss"
-      ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      },
-      "serviceWorker": true
-    }
-  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
@@ -37,15 +12,15 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
+      "project": "./tsconfig.spec.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "src/tsconfig.spec.json",
+      "project": "apps/example/src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "e2e/tsconfig.e2e.json",
+      "project": "apps/example/e2e/tsconfig.e2e.json",
       "exclude": "**/node_modules/**"
     }
   ],
@@ -54,11 +29,76 @@
       "config": "./karma.conf.js"
     }
   },
+  "apps": [
+    {
+      "name": "example",
+      "root": "apps/example/src",
+      "outDir": "dist/apps/example",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "api",
+      "root": "libs/api/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "crud",
+      "root": "libs/crud/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "entity-repository",
+      "root": "libs/entity-repository/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "ngrx-helpers",
+      "root": "libs/ngrx-helpers/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "router",
+      "root": "libs/router/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "$workspaceRoot",
+      "root": ".",
+      "appRoot": ""
+    }
+  ],
   "defaults": {
-    "styleExt": "scss",
-    "component": {},
     "schematics": {
       "collection": "@nrwl/schematics"
-    }
+    },
+    "styleExt": "css",
+    "component": {}
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }

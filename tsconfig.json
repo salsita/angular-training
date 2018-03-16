@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -19,5 +18,15 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "strictNullChecks": true
-  }
+    "baseUrl": ".",
+    "paths": {
+      "@angular-training-mono/*": [
+        "libs/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
