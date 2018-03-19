@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { FlatRouterStateSnapshot } from '../router.interfaces';
+import { FlatRouterStateSnapshot } from '../src/router.interfaces';
 
 @Injectable()
 export class MockRouterSelectors {
