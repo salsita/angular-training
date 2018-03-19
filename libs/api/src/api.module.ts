@@ -9,8 +9,6 @@ import {
   combineReducers
 } from '@ngrx/store';
 
-import { ApiErrorToastComponent } from './api-error-toast/api-error-toast.component';
-import { ApiLoaderComponent } from './api-loader/api-loader.component';
 import { APIInterceptor, API_BASE_URL } from './api.interceptor';
 import { ApiModuleConfig } from './api.interfaces';
 import { apiReducer } from './api.reducer';
@@ -19,9 +17,7 @@ import { ApiService } from './api.service';
 import { API_STORE_NAMESPACE } from './api.tokens';
 
 @NgModule({
-  imports: [CommonModule, StoreFeatureModule],
-  declarations: [ApiLoaderComponent, ApiErrorToastComponent],
-  exports: [ApiErrorToastComponent, ApiLoaderComponent]
+  imports: [CommonModule, StoreFeatureModule]
 })
 export class ApiModule {
   constructor(apiService: ApiService) {}

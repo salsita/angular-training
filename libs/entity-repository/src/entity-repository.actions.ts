@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from '../ngrx-helpers/action-creator-factory';
+import { ActionCreatorFactory } from '@angular-training-mono/ngrx-helpers';
 import { EntityRepositoryState } from './entity-repository.interfaces';
 
 export const entityRepositoryActionTypes = {

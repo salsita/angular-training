@@ -1,0 +1,10 @@
+{
+  "name": "@angular-training-mono/ngrx-helpers",
+  "description": "ngrx helpers module for @angular-training-mono",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@angular/core": "5.2.6",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
+  }
+}

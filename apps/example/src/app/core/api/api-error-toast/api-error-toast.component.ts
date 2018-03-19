@@ -1,7 +1,6 @@
+import { ApiSelectors } from '@angular-training-mono/api';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
-import { ApiSelectors } from '../api.selectors';
 
 @Component({
   selector: 'app-api-error-toast',

@@ -7,8 +7,8 @@ import { switchMap } from 'rxjs/operators/switchMap';
 import { take } from 'rxjs/operators/take';
 import { tap } from 'rxjs/operators/tap';
 
-import { EntityRepositoryService } from '../entity-repository/entity-repository.service';
-import { RouterSelectors } from '../router/router.selectors';
+import { EntityRepositoryService } from '@angular-training-mono/entity-repository';
+import { RouterSelectors } from '@angular-training-mono/router';
 import { crudActionCreators } from './crud.actions';
 import { CrudResolver } from './crud.resolver';
 
@@ -42,7 +42,7 @@ export class CrudService {
       .pipe(
         take(1),
         map(storeParams => resolver.params(storeParams)),
-        switchMap(params =>
+        switchMap((params: any[]) =>
           this.handleRequest(
             resolver.data(...params),
             resolver.schema,

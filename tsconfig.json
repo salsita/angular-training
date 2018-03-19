@@ -17,7 +17,7 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
       "@angular-training-mono/*": [

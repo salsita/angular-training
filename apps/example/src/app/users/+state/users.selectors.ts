@@ -1,8 +1,11 @@
+import { CrudSelectors } from '@angular-training-mono/crud';
+import {
+  EntityRepositorySelectors,
+  SingleEntityRepository
+} from '@angular-training-mono/entity-repository';
 import { Injectable } from '@angular/core';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 
-import { CrudSelectors } from '../../core/crud';
-import { EntityRepositorySelectors, SingleEntityRepository } from '../../core/entity-repository';
 import { SkillsResolver } from '../skills/skills.resolver';
 import { UserDetailResolver } from '../user-detail/user-detail.resolver';
 import { UsersListResolver } from '../users-list/users-list.resolver';

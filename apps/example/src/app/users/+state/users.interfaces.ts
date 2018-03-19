@@ -1,4 +1,4 @@
-import { CrudState } from '../../core/crud';
+import { CrudState } from '@angular-training-mono/crud';
 
 export interface UsersCrudState extends CrudState {
   users: {

@@ -1,7 +1,7 @@
+import { apiCall } from '@angular-training-mono/api';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { apiCall } from '../core/api';
 import { User } from './users.interfaces';
 
 @Injectable()

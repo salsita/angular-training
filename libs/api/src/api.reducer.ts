@@ -1,4 +1,4 @@
-import { createReducer } from './../ngrx-helpers/create-reducer';
+import { createReducer } from '@angular-training-mono/ngrx-helpers';
 
 import { apiActionTypes } from './api.actions';
 import { ApiErrorPayload, ApiState } from './api.interfaces';

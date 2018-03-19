@@ -1,3 +1,4 @@
+import { withLoadingIndicator } from '@angular-training-mono/api';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
@@ -5,7 +6,6 @@ import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators/switchMap';
 
 import { AppState } from '../../app.interfaces';
-import { withLoadingIndicator } from '../../core/api';
 import { UsersListResolver } from '../users-list/users-list.resolver';
 import { UsersApi } from '../users.api';
 import { User } from '../users.interfaces';

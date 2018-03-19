@@ -1,8 +1,8 @@
+import { withLoadingIndicator } from '@angular-training-mono/api';
+import { CrudResolver, CrudService } from '@angular-training-mono/crud';
 import { Injectable } from '@angular/core';
 
 import { skillSchema } from '../+state/users.schema';
-import { withLoadingIndicator } from '../../core/api';
-import { CrudResolver, CrudService } from '../../core/crud';
 import { UsersApi } from '../users.api';
 
 @Injectable()

@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from '../ngrx-helpers/action-creator-factory';
+import { ActionCreatorFactory } from '@angular-training-mono/ngrx-helpers';
 import { EntitiesFetchedPayload } from './crud.interfaces';
 
 export const crudActionTypes = {

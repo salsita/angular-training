@@ -1,0 +1,15 @@
+{
+  "name": "@angular-training-mono/router",
+  "description": "Router module for @angular-training-mono",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@angular/common": "5.2.6",
+    "@angular/core": "5.2.6",
+    "@angular/platform-browser": "5.2.6",
+    "@angular/router": "5.2.6",
+    "@ngrx/router-store": "5.0.1",
+    "@ngrx/store": "5.1.0",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
+  }
+}
