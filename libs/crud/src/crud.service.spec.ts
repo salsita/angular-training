@@ -5,7 +5,6 @@ import { of } from 'rxjs/observable/of';
 
 import { EntityRepositoryService } from '@angular-training/entity-repository';
 import { RouterSelectors } from '@angular-training/router';
-// tslint:disable-next-line nx-enforce-module-boundaries
 import { MockRouterSelectors } from '@angular-training/router/testing';
 import { crudActionCreators } from './crud.actions';
 import { CrudResolver } from './crud.resolver';

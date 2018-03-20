@@ -154,7 +154,11 @@
       true,
       {
         "lazyLoad": [],
-        "allow": []
+        "allow": [
+          "@angular-training/api/testing",
+          "@angular-training/ngrx-helpers/testing",
+          "@angular-training/router/testing"
+        ]
       }
     ]
   }
