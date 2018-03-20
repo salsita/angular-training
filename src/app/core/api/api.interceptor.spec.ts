@@ -49,12 +49,11 @@ describe('APIInterceptor', () => {
     service = TestBed.get(APIInterceptor);
   };
 
-  Object.entries({
-    'with baseUrl': 'http://localhost:3000',
-    'without baseUrl': ''
-  }).map(([description, baseUrl]) => {
+  [
+    { description: 'with baseUrl', baseUrl: 'http://localhost:3000' },
+    { description: 'without baseUrl', baseUrl: '' }
+  ].map(({ description, baseUrl }) => {
     it(`should not change URL ${description}`, () => {
-      // APIInterceptor should succeed when
       const data = { name: 'John Doe' };
       setupTest(baseUrl, of(data));
 
@@ -73,11 +72,9 @@ describe('APIInterceptor', () => {
     });
   });
 
-  it('should fail', async () => {
+  it('should throw any error that request produces', async () => {
     expect.assertions(2);
 
-    // APIInterceptor should return Observable with an error
-    // when request fails with unknown error
     const error = new Error('message');
     setupTest('', _throw(error));
 
@@ -89,11 +86,9 @@ describe('APIInterceptor', () => {
     }
   });
 
-  it('should fail and store error', async () => {
+  it('should dispatch action in case of `ApiError` and then throw it', async () => {
     expect.assertions(2);
 
-    // APIInterceptor should return Observable with an error
-    // and dispatch that error when request fails with `instanceof ApiError`
     const error = new BusinessValidationError('message');
     setupTest('', _throw(error));
 
