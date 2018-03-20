@@ -1,5 +1,5 @@
-import { CrudResolver, CrudService } from '@angular-training-mono/crud';
-import { FlatRouterStateSnapshot } from '@angular-training-mono/router';
+import { CrudResolver, CrudService } from '@angular-training/crud';
+import { FlatRouterStateSnapshot } from '@angular-training/router';
 import { Injectable } from '@angular/core';
 
 import { userSchema } from '../+state/users.schema';

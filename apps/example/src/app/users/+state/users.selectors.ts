@@ -1,8 +1,8 @@
-import { CrudSelectors } from '@angular-training-mono/crud';
+import { CrudSelectors } from '@angular-training/crud';
 import {
   EntityRepositorySelectors,
   SingleEntityRepository
-} from '@angular-training-mono/entity-repository';
+} from '@angular-training/entity-repository';
 import { Injectable } from '@angular/core';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 

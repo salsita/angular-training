@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiSelectors } from '@angular-training-mono/api';
+import { ApiSelectors } from '@angular-training/api';
 
 @Component({
   selector: 'app-api-loader',

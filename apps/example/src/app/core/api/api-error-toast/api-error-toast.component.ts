@@ -1,4 +1,4 @@
-import { ApiSelectors } from '@angular-training-mono/api';
+import { ApiSelectors } from '@angular-training/api';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 

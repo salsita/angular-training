@@ -20,7 +20,7 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-training-mono/*": [
+      "@angular-training/*": [
         "libs/*"
       ]
     }

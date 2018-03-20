@@ -1,6 +1,6 @@
 {
-  "name": "@angular-training-mono/ngrx-helpers",
-  "description": "ngrx helpers module for @angular-training-mono",
+  "name": "@angular-training/ngrx-helpers",
+  "description": "ngrx helpers module for @angular-training",
   "version": "0.0.0",
   "peerDependencies": {
     "@angular/core": "5.2.6",

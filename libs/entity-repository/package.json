@@ -1,9 +1,9 @@
 {
-  "name": "@angular-training-mono/entity-repository",
-  "description": "Enity Repository module for @angular-training-mono",
+  "name": "@angular-training/entity-repository",
+  "description": "Enity Repository module for @angular-training",
   "version": "0.0.0",
   "peerDependencies": {
-    "@angular-training-mono/ngrx-helpers": "0.0.0",
+    "@angular-training/ngrx-helpers": "0.0.0",
     "@angular/core": "5.2.6",
     "@ngrx/store": "5.1.0",
     "lodash": "^4.17.4",

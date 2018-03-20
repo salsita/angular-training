@@ -1,6 +1,6 @@
 import { mergeWith } from 'lodash';
 
-import { createReducer } from '@angular-training-mono/ngrx-helpers';
+import { createReducer } from '@angular-training/ngrx-helpers';
 import { entityRepositoryActionTypes } from './entity-repository.actions';
 import { EntityRepositoryState } from './entity-repository.interfaces';
 

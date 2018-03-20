@@ -3,10 +3,10 @@ import { Store } from '@ngrx/store';
 import { schema } from 'normalizr';
 import { of } from 'rxjs/observable/of';
 
-import { EntityRepositoryService } from '@angular-training-mono/entity-repository';
-import { RouterSelectors } from '@angular-training-mono/router';
+import { EntityRepositoryService } from '@angular-training/entity-repository';
+import { RouterSelectors } from '@angular-training/router';
 // tslint:disable-next-line nx-enforce-module-boundaries
-import { MockRouterSelectors } from '@angular-training-mono/router/testing';
+import { MockRouterSelectors } from '@angular-training/router/testing';
 import { crudActionCreators } from './crud.actions';
 import { CrudResolver } from './crud.resolver';
 import { CrudService } from './crud.service';

@@ -1,4 +1,4 @@
-import { withLoadingIndicator } from '@angular-training-mono/api';
+import { withLoadingIndicator } from '@angular-training/api';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';

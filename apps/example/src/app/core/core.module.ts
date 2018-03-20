@@ -1,7 +1,7 @@
-import { ApiModule } from '@angular-training-mono/api';
-import { CrudModule } from '@angular-training-mono/crud';
-import { EntityRepositoryModule } from '@angular-training-mono/entity-repository';
-import { RouterModule as RouterStoreModule } from '@angular-training-mono/router';
+import { ApiModule } from '@angular-training/api';
+import { CrudModule } from '@angular-training/crud';
+import { EntityRepositoryModule } from '@angular-training/entity-repository';
+import { RouterModule as RouterStoreModule } from '@angular-training/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 

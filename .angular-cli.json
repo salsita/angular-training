@@ -1,8 +1,8 @@
 {
   "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
   "project": {
-    "name": "angular-training-mono",
-    "npmScope": "angular-training-mono",
+    "name": "angular-training",
+    "npmScope": "angular-training",
     "latestMigration": "20180227-cleanup-scripts"
   },
   "e2e": {
@@ -95,7 +95,7 @@
     "schematics": {
       "collection": "@nrwl/schematics"
     },
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {},
     "build": {
       "preserveSymlinks": true

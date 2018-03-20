@@ -7,8 +7,8 @@ import { switchMap } from 'rxjs/operators/switchMap';
 import { take } from 'rxjs/operators/take';
 import { tap } from 'rxjs/operators/tap';
 
-import { EntityRepositoryService } from '@angular-training-mono/entity-repository';
-import { RouterSelectors } from '@angular-training-mono/router';
+import { EntityRepositoryService } from '@angular-training/entity-repository';
+import { RouterSelectors } from '@angular-training/router';
 import { crudActionCreators } from './crud.actions';
 import { CrudResolver } from './crud.resolver';
 

@@ -1,4 +1,4 @@
-import { apiCall } from '@angular-training-mono/api';
+import { apiCall } from '@angular-training/api';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 

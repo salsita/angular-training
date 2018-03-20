@@ -1,7 +1,7 @@
-import { ApiState } from '@angular-training-mono/api';
-import { CrudState } from '@angular-training-mono/crud';
-import { EntityRepositoryState } from '@angular-training-mono/entity-repository';
-import { RouterState } from '@angular-training-mono/router';
+import { ApiState } from '@angular-training/api';
+import { CrudState } from '@angular-training/crud';
+import { EntityRepositoryState } from '@angular-training/entity-repository';
+import { RouterState } from '@angular-training/router';
 
 export interface AppState {
   api: ApiState;

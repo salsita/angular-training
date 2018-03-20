@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from '@angular-training-mono/ngrx-helpers';
+import { ActionCreatorFactory } from '@angular-training/ngrx-helpers';
 import { ApiErrorPayload } from './api.interfaces';
 
 export const apiActionTypes = {

@@ -1,6 +1,6 @@
 {
-  "name": "@angular-training-mono/router",
-  "description": "Router module for @angular-training-mono",
+  "name": "@angular-training/router",
+  "description": "Router module for @angular-training",
   "version": "0.0.0",
   "peerDependencies": {
     "@angular/common": "5.2.6",

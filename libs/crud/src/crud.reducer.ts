@@ -1,4 +1,4 @@
-import { createReducer } from '@angular-training-mono/ngrx-helpers';
+import { createReducer } from '@angular-training/ngrx-helpers';
 import { crudActionTypes } from './crud.actions';
 import { CrudState, EntitiesFetchedPayload } from './crud.interfaces';
 
