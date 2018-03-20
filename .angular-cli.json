@@ -5,11 +5,7 @@
     "npmScope": "angular-training",
     "latestMigration": "20180227-cleanup-scripts"
   },
-  "e2e": {
-    "protractor": {
-      "config": "./protractor.conf.js"
-    }
-  },
+  "e2e": {},
   "lint": [
     {
       "project": "./tsconfig.spec.json",
@@ -24,11 +20,7 @@
       "exclude": "**/node_modules/**"
     }
   ],
-  "test": {
-    "karma": {
-      "config": "./karma.conf.js"
-    }
-  },
+  "test": {},
   "apps": [
     {
       "name": "example",
