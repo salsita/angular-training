@@ -14,10 +14,6 @@
     {
       "project": "apps/example/src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "apps/example/e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
     }
   ],
   "test": {},
