@@ -8,7 +8,7 @@ import {
 } from '@ngrx/store';
 
 import { EntityRepositoryModuleConfig } from './entity-repository.interfaces';
-import { entityRepositoryInitialState, entityRepositoryReducer } from './entity-repository.reducer';
+import { entityRepositoryReducer } from './entity-repository.reducer';
 import { EntityRepositorySelectors } from './entity-repository.selectors';
 import { EntityRepositoryService } from './entity-repository.service';
 import { ENTITY_REPOSITORY_STORE_NAMESPACE } from './entity-repository.tokens';
@@ -33,8 +33,7 @@ export class EntityRepositoryModule {
           useValue: {
             key: storeNamespace,
             reducerFactory: combineReducers,
-            metaReducers: [],
-            initialState: entityRepositoryInitialState
+            metaReducers: []
           }
         },
         {

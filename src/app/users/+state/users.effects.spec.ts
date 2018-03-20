@@ -40,7 +40,7 @@ describe('UsersEffects', () => {
   });
 
   describe('save$', () => {
-    it('should work', async () => {
+    it('should work', () => {
       actions = hot('-a-|', { a: usersActionCreators.saveUser() });
 
       effects.saveUser = jest.fn(() => Promise.resolve());

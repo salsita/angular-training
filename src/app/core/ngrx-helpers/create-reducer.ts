@@ -6,8 +6,8 @@ interface Handlers {
 
 export const createReducer = <T, U extends Action>(handlers: Handlers, initialState: T) => (
   state: T = initialState,
-  action: U
+  action?: U
 ): T => {
-  const handler = handlers[action && action.type];
+  const handler = action ? handlers[action.type] : null;
   return handler ? handler(state, action) : state;
 };

@@ -36,6 +36,7 @@ exports[`UserFormComponent should add skill 1`] = `
     </h2>
     
     
+    
     <ul>
       
       
@@ -214,6 +215,7 @@ exports[`UserFormComponent should remove skill 1`] = `
     </h2>
     
     
+    
     <ul>
       
       
@@ -316,6 +318,7 @@ exports[`UserFormComponent should render user form 1`] = `
     <h2>
       Skills
     </h2>
+    
     
     
     <ul>

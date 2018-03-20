@@ -11,7 +11,7 @@ export class RouterSelectors {
     private store: Store<any>
   ) {}
 
-  getRouterState() {
+  private getRouterState() {
     return this.store.select(this.namespace) as Store<RouterState>;
   }
 

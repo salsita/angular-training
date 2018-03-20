@@ -4,7 +4,7 @@
   [type]="type"
   [placeholder]="label"
 />
-<span *ngIf="control.touched && control.errors">
+<span *ngIf="control?.touched && control?.errors">
   <ng-container *ngFor="let error of errors; let i = index">
     <ng-container *ngIf="i > 0">,</ng-container>
     {{error}}
