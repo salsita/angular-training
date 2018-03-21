@@ -16,19 +16,21 @@ Nx is designed to help you create and build enterprise grade Angular application
 
 ## Generate your first application
 
-Run `ng generate app myapp` to generate an application. When using Nx, you can create multiple applications and libraries in the same CLI workspace. Read more [here](http://nrwl.io/nx).
+Run `yarn ng generate app myapp` to generate an application. When using Nx, you can create multiple applications and libraries in the same CLI workspace. Read more [here](http://nrwl.io/nx).
 
 ## Development server
 
-Run `ng serve --app=myapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `yarn serve --app=example` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+If you want to run example app with precompiled `libs/*`, compile them first with `yarn libs:build` and then run server with `yarn serve --app=example-dist-libs`.
 
 ## Code scaffolding
 
-Run `ng generate component component-name --app=myapp` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `yarn ng generate component component-name --app=myapp` to generate a new component. You can also use `yarn ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
-Run `ng build --app=myapp` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `yarn build --app=example` to build the project. The build artifacts will be stored in the `dist/` directory.
+If you want to use precompiled libs, run `yarn libs:build` and then run `yarn build --app=example-dist-libs`.
 
 ## Running unit tests
 
@@ -36,4 +38,4 @@ Run `yarn test` to execute the unit tests via [Jest](https://facebook.github.io/
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI use `yarn ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
