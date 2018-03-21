@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from '@angular-training/ngrx-helpers';
+import { ActionCreatorFactory, actionCreator } from '@angular-training/ngrx-helpers';
 import { ApiErrorPayload } from './api.interfaces';
 
 export const apiActionTypes = {
@@ -7,8 +7,19 @@ export const apiActionTypes = {
   STOP_LOADING: 'api/stop-loading'
 };
 
+const apiError: actionCreator<ApiErrorPayload> = ActionCreatorFactory.create<ApiErrorPayload>(
+  apiActionTypes.API_ERROR,
+  null
+);
+const startLoading: actionCreator<void> = ActionCreatorFactory.create<void>(
+  apiActionTypes.START_LOADING
+);
+const stopLoading: actionCreator<void> = ActionCreatorFactory.create<void>(
+  apiActionTypes.STOP_LOADING
+);
+
 export const apiActionCreators = {
-  apiError: ActionCreatorFactory.create<ApiErrorPayload>(apiActionTypes.API_ERROR, null),
-  startLoading: ActionCreatorFactory.create<void>(apiActionTypes.START_LOADING),
-  stopLoading: ActionCreatorFactory.create<void>(apiActionTypes.STOP_LOADING)
+  apiError,
+  startLoading,
+  stopLoading
 };

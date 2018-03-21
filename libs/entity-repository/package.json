@@ -1,4 +1,5 @@
 {
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@angular-training/entity-repository",
   "description": "Enity Repository module for @angular-training",
   "version": "0.0.0",
@@ -10,5 +11,16 @@
     "normalizr": "^3.2.4",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts",
+      "umdModuleIds": {
+        "@angular-training/ngrx-helpers": "ngrxHelpers",
+        "@ngrx/store": "store",
+        "lodash": "lodash",
+        "normalizr": "normalizr"
+      }
+    }
   }
 }

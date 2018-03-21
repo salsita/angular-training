@@ -1,9 +1,10 @@
 import { Action } from '@ngrx/store';
 
-interface Handlers {
+export interface Handlers {
   [k: string]: Function;
 }
 
+export type reducerType<T> = (state: T, action?: Action | undefined) => T;
 export const createReducer = <T, U extends Action>(handlers: Handlers, initialState: T) => (
   state: T = initialState,
   action?: U

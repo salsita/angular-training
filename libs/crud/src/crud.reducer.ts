@@ -1,4 +1,4 @@
-import { createReducer } from '@angular-training/ngrx-helpers';
+import { createReducer, reducerType } from '@angular-training/ngrx-helpers';
 import { crudActionTypes } from './crud.actions';
 import { CrudState, EntitiesFetchedPayload } from './crud.interfaces';
 
@@ -15,7 +15,7 @@ const entitiesFetched = (
   }
 });
 
-export const crudReducer = createReducer(
+export const crudReducer: reducerType<CrudState> = createReducer(
   {
     [crudActionTypes.ENTITIES_FETCHED]: entitiesFetched
   },

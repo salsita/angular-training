@@ -1,4 +1,4 @@
-import { createReducer } from '@angular-training/ngrx-helpers';
+import { createReducer, reducerType } from '@angular-training/ngrx-helpers';
 
 import { apiActionTypes } from './api.actions';
 import { ApiErrorPayload, ApiState } from './api.interfaces';
@@ -23,7 +23,7 @@ const stopLoading = (state: ApiState): ApiState => ({
   callsInProgress: state.callsInProgress - 1
 });
 
-export const apiReducer = createReducer(
+export const apiReducer: reducerType<ApiState> = createReducer(
   {
     [apiActionTypes.API_ERROR]: apiError,
     [apiActionTypes.START_LOADING]: startLoading,
