@@ -12,7 +12,7 @@ export type actionCreator<T> = (payload?: T) => Action<T>;
 
 // @dynamic
 export class ActionCreatorFactory {
-  static create<T>(type: string, defaultPayloadValue?: any): actionCreator<T> {
+  static create<T>(type: string, defaultPayloadValue?: T | null): actionCreator<T> {
     return (payload?: T): Action<T> => {
       return new Action<T>(type, payload || defaultPayloadValue);
     };

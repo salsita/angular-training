@@ -4,7 +4,7 @@ export interface Handlers {
   [k: string]: Function;
 }
 
-export type reducerType<T> = (state: T, action?: Action | undefined) => T;
+export type reducerType<T> = (state: T, action?: Action) => T;
 export const createReducer = <T, U extends Action>(handlers: Handlers, initialState: T) => (
   state: T = initialState,
   action?: U
