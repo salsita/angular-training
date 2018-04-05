@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { RouterState } from './router.interfaces';
+import { FlatRouterStateSnapshot, RouterState } from './router.interfaces';
 import { ROUTER_STORE_NAMESPACE } from './router.tokens';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class RouterSelectors {
     return this.store.select(this.namespace) as Store<RouterState>;
   }
 
-  getFlatRouterState() {
+  getFlatRouterState(): Store<FlatRouterStateSnapshot> {
     return this.getRouterState().select('state');
   }
 }

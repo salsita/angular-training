@@ -1,6 +1,6 @@
+import { createReducer, reducerType } from '@angular-training/ngrx-helpers';
 import { mergeWith } from 'lodash';
 
-import { createReducer } from '@angular-training/ngrx-helpers';
 import { entityRepositoryActionTypes } from './entity-repository.actions';
 import { EntityRepositoryState } from './entity-repository.interfaces';
 
@@ -21,7 +21,7 @@ const repositoryHasChanged = (
     return undefined;
   });
 
-export const entityRepositoryReducer = createReducer(
+export const entityRepositoryReducer: reducerType<EntityRepositoryState<any>> = createReducer(
   {
     [entityRepositoryActionTypes.REPOSITORY_HAS_CHANGED]: repositoryHasChanged
   },

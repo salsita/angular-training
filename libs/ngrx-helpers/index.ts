@@ -1,2 +1,2 @@
-export { ActionCreator, ActionCreatorFactory } from './src/action-creator-factory';
-export { createReducer } from './src/create-reducer';
+export { Action, ActionCreatorFactory, actionCreator } from './src/action-creator-factory';
+export { createReducer, reducerType } from './src/create-reducer';
