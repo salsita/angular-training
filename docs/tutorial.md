@@ -1,6 +1,6 @@
 # Angular Tutorial Application
 
-Hi! Welcome to our tutorial that will guide you through the creation of your (maybe) first Angular ~~2~~ ~~3~~ ~~4~~ 5 application.
+Hi! Welcome to our tutorial that will guide you through the creation of your (maybe) first Angular ~~2~~ ~~3~~ ~~4~~ ~~5~~ 6 application.
 
 ## Checkpoint -1: basic theory
 
@@ -17,8 +17,8 @@ praiseGod(god); // ok
 praiseGod(42); // no way!
 ```
 
-- ToDo: go through [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html), you have 2 minutes ʘ‿ʘ
-- or you can read whole [Tutorial](https://www.typescriptlang.org/docs/handbook/basic-types.html) later
+- ToDo: go through [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- you can read whole [Tutorial](https://www.typescriptlang.org/docs/handbook/basic-types.html) later
 
 ### Angular Basics
 #### What's Angular
@@ -48,14 +48,17 @@ class HelloWorldComponent {
 }
 ```
 
+- little info about decorators ([docs](http://www.typescriptlang.org/docs/handbook/decorators.html))
+  - add metadata to decorated item (class/property/param)
+
 #### Modules
 - smallest compilation unit in Angular, can be lazy loaded
-- should contain related Components (eg. from the same feature)
-  - `UsersListComponent` + `UserDetailComponent` in one module
+- should contain related Components (from the same feature)
+  - `UsersListComponent` + `UserDetailComponent` + `UsersApiService` in one module
 
 ```TypeScript
 @NgModule({
-  imports:      [HttpClientModule], // import of another module with all its components/services/...
+  imports:      [HttpClientModule], // import another module with all its components/services/...
   providers:    [Logger], // services provided by this module to other modules
   declarations: [AppComponent], // local components
   exports:      [AppComponent] // stuff available for other modules (except for services)
@@ -69,10 +72,10 @@ export class AppModule {}
 - in short:
   - loop: [*ngFor](https://angular.io/guide/template-syntax#ngforof)
   - conditional rendering: [*ngIf](https://angular.io/guide/template-syntax#ngif)
-  - assign to attribute [<tag [attr]="var">](https://angular.io/guide/template-syntax#attribute-class-and-style-bindings)
+  - assign to an attribute [<tag [attr]="var">](https://angular.io/guide/template-syntax#attribute-class-and-style-bindings)
   - listen for events: [<tag (click)="func($event)">](https://angular.io/guide/template-syntax#event-binding---event-)
   - interpolate value: [{{var}}](https://angular.io/guide/template-syntax#property-binding-or-interpolation)
-  - transform: [{{var | date}}](https://angular.io/guide/template-syntax#the-pipe-operator---)
+  - transform (pipe): [{{var | date}}](https://angular.io/guide/template-syntax#the-pipe-operator---)
   - safe access: [{{var?.attribute}}](https://angular.io/guide/template-syntax#the-safe-navigation-operator----and-null-property-paths)
 
 ```HTML
@@ -90,7 +93,7 @@ export class AppModule {}
 ```
 
 #### Services and dependency injection
-- defined as classes
+- services defined as classes
 - use [`@Injectable`](https://angular.io/api/core/Injectable) and add them to `@NgModule({ providers: [...] })` to make them available
 - services are singletons (import services to `@NgModule` only once)
 -  ([guide with examples](https://angular.io/guide/architecture-services))
@@ -129,16 +132,16 @@ Now we can generate our new project:
 
 Create new module with routing and one page:
 
-3) Clean `src/app/app.component.html` (just keep the `<router-outlet>`)
-4) create `UsersListComponent` ([@Component](https://angular.io/api/core/Comngrx-helpersponent)) files in `src/app/users/users-list/users-list.component.(ts|html)`
-    - don't forget do add new `@Component` to `declations` of our `UsersModule`
-5) create [@NgModule](https://angular.io/api/core/NgModule) for new feature module `UsersModule` in `src/app/users/users.module.ts` ([why?](https://angular.io/guide/styleguide#feature-modules)), setup routing (import [RouterModule.forChild](https://angular.io/api/router/RouterModule))
+3) Clean `src/app/app.component.html` (keep just the `<router-outlet>`)
+4) create [@NgModule](https://angular.io/api/core/NgModule) for new feature module `UsersModule` in `src/app/users/users.module.ts` ([why?](https://angular.io/guide/styleguide#feature-modules)), setup routing (import [RouterModule.forChild](https://angular.io/api/router/RouterModule))
     - root URL route should render `UsersListComponent`
     - update `AppRoutingModule` in `src/app/app-routing.module.ts`:
       - lazy load `UsersModule` on `/users` ([guide](https://angular.io/guide/router#lazy-loading-route-configuration))
       - redirect unknown URLs to `/users` ([guide](https://angular.io/guide/router#configuration))
+4) create `UsersListComponent` ([@Component](https://angular.io/api/core/Comngrx-helpersponent)) files in `src/app/users/users-list/users-list.component.(ts|html)`
+    - don't forget do add new `@Component` to `declations` of our `UsersModule`
 6) Add static list of users and render it in `UsersListComponents` in a table
-    - `[{ firstName: 'John', lastName: 'Doe' }]`
+    - `[{ firstName: 'John', lastName: 'Doe' }, ...]`
 
 ## Checkpoint 2 - Hello REST + forms
 
@@ -159,14 +162,13 @@ ApiModule.forRoot({
   storeNamespace: 'api'
 })
 ```
-1) Import required `@NgModule`s to `UsersModule`:
+2) Import required `@NgModule`s to `UsersModule`:
     - [FormsModule](https://angular.io/api/forms/FormsModule) & [ReactiveFormsModule](https://angular.io/api/forms/ReactiveFormsModule) from `@angular/forms`
-
-2) create `UsersApi` in `src/app/users/users.api.ts`
+3) create `UsersApi` in `src/app/users/users.api.ts`
     - add `getUsers` method, that will use [HttpClient](https://angular.io/api/common/http/HttpClient) service to call HTTP GET `/users` ([guide](https://angular.io/guide/http))
     - don't forget to add new service to `providers` of `UsersModule`
-3) inject `UsersApi` to `UsersListComponent` and use it to render list of users from the API (instead of static data from previous Checkpoint)
-    - `HttpClient` returns `Observable`, get its data by `.subscribe` or `async` pipe ([API](https://angular.io/api/common/AsyncPipe))
+4) inject `UsersApi` to `UsersListComponent` and use it to render list of users from the API (instead of static data from previous Checkpoint)
+    - `HttpClient` returns `Observable`, get the data by calling `.subscribe()` or by `async` pipe ([API](https://angular.io/api/common/AsyncPipe))
     - [shape of /users JSON](http://private-e1fc4-reacttraining1.apiary-mock.com/api/v1/users/1)
 
 Let's add another page with user detail:
@@ -184,25 +186,28 @@ Let's add another page with user detail:
 8) add `/users/:id` route, render `UsersEditComponent` on it
 9) add `routerLink` from `UsersListComponent` to `UserDetailComponent`  (`/:id`)
 
-Now it's possible to see detail of an user. Now we should allow user to edit/add new users
+Now it's possible to see detail of an user. We should also make `UserFormComponent` editable (+ add new users)
 
 10) add `/users/add` route, render `UsersEditComponent` on it
 11) update `UserFormComponent` - render `<form>` inside
     - use Angular services: `FormBuilder` ([guide](https://angular.io/guide/reactive-forms#introduction-to-formbuilder))
 12) add `saveUser()` method to `UsersApi`, that will fire HTTP POST with user data to `/users`
-13) handle form submit in `UserDetailComponent` -> save user
+13) handle form submission in `UserDetailComponent` -> save user
     - use `saveUser()` method of `UsersApi` to send changed user data to server
-    - after successful save use router to navigate back to `/users` ([API](https://angular.io/api/router/Router))
+    - after successful request, use router to navigate back to `/users` ([API](https://angular.io/api/router/Router))
     - `submit` event conflicts with DOM event, don't forget to stop its propagation
 
 ## Checkpoint 3 - Hello Resolver
 
 Let's rewrite all data fetching to resolvers! ([guide](https://angular.io/guide/router#resolve-pre-fetching-component-data))
 
-1) create `UsersListResolver` in `src/app/users/users-list/users-list.resolver.ts`, use `UsersApi` to load data and add this resolver to `/users` route instead of loading data in the component
+1) create `UsersListResolver` in `src/app/users/users-list/users-list.resolver.ts`
+    - user `UsersApi` to load data
+    - add this resolver to `/users` route instead of loading data in the component
+    - get data in the compoment from `ActivatedRoute`
 2) do the same with `UserResolver` in `src/app/users/user-edit/user.resolver.ts`
 3) also add `SkillsResolver` in `src/app/users/skills/skills.resolver.ts` and use it everywhere you need list of skills
-4) optimize routes configuration in `UsersModule` - skills should be loaded only once for whole app
+4) optimize routes configuration in `UsersModule` - skills should be loaded only once for the whole app
 
 ## Checkpoint 4 - Hello ~~Redux~~ ngrx
 
@@ -216,9 +221,9 @@ Very simplified steps:
     - `npm install --save @ngrx/effects` ([docs](https://github.com/ngrx/platform/tree/master/docs/effects))
 5) implement simple counter component (with reducer & actions) to show how Redux architecture works
     - `INCREMENT` & `DECREMENT` actions
-    - simple reducer the updates counter
+    - simple reducer that updates counter
     - use selectors to render data
-6) create new effect that will negate you counter action with delay
+6) create new effect that will negate you counter action with 1s delay
 7) grab popcorn and watch Redux DevTools
 
 ## Checkpoint 5 - Advanced ngrx
@@ -249,7 +254,7 @@ In the end we'll use `Crud`/`EntityRepository` modules to do the work for us so 
       - dispatch `result` and `routeId` (`normalizeAndStore`'s parameter) in `ROUTE_DATA_CHANGED` action
 4) add reducer in `src/app/users/+state/users.reducer.ts`
     - save data from `ENTITES_CHANGED` & `ROUTE_DATA_CHANGED` actions
-    - shape of Users' module state:
+    - how should Users state look like
 ```JavaScript
 {
   // normalized data
@@ -284,7 +289,7 @@ We should also refactor how user is saved. The logic should not stay in `UserEdi
 
 ## Checkpoint 6 - Rewrite
 
-Let's refactor the app to use `CrudModule` & `EntityRepositoryModule` & `RouterModule` (from `@angular-training/router`).
+Let's refactor the app - use `CrudModule` & `EntityRepositoryModule` & `RouterModule` (from `@angular-training/router`).
 
 Prerequisites:
 - add NPM dependencies
@@ -294,10 +299,11 @@ Prerequisites:
 2) rewrite all resolvers to use `CrudResolver` from `CrudModule`
 
 
-# How would you do?
-1) render names in `UsersListComponent` in UPPERCASE
+# Quiz time! How would you... ?
+1) render user names in `UsersListComponent` in UPPERCASE
 2) render `UserEditComponent` as a popup above `UsersListComponent`
 
 
 # Recomended links
+- [Angular API](https://angular.io/api)
 - [Angular Styleguide](https://angular.io/guide/styleguide)
