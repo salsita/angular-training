@@ -1,6 +1,6 @@
 # Angular Tutorial Application
 
-Hi! Welcome to our tutorial that will guide you through the creation of your (maybe) first Angular ~~2~~ ~~3~~ ~~4~~ ~~5~~ 6 application.
+Hi! Welcome to our tutorial that will guide you through the creation of your (maybe) first Angular application.
 
 ## Checkpoint -1: basic theory
 
@@ -23,6 +23,7 @@ praiseGod(42); // no way!
 ### Angular Basics
 #### What's Angular
  - [Architecture overview](https://angular.io/guide/architecture)
+ - [Cheat Sheet](https://angular.io/guide/cheatsheet)
 
 #### Components
 
@@ -85,7 +86,7 @@ export class AppModule {}
       <span class="bold" [style.color]="idea.color">
         {{idea | uppercase}}
       </span>
-      <button (click)="ifYouBelieveInYourselfEverythingIspossible()">
+      <button (click)="ifYouBelieveInYourselfEverythingIsPossible()">
         Let's Make It Happen!
       </button>
     </span>
@@ -101,7 +102,7 @@ export class AppModule {}
 ```TypeScript
 @Injectable()
 class IdeasApiService {
-  getIdeas() {
+  getIdeas(): Promise<any[]> {
     return fetchDataSomehow(...);
   }
 }
@@ -112,10 +113,61 @@ class IdeasComponent {
 
   constructor(private api: IdeasApiService) {}
   async loadIdeas() {
-    ideas = await this.api.getIdeas();
+    this.ideas = await this.api.getIdeas();
   }
 }
 ```
+
+### RxJS (Observables)
+- they represent collection (similar to an Arrays) of values in the future (similar to Promises)
+
+Example: multiply odd numbers by 2 and print them:
+```TypeScript
+const numbers = [1, 2, 3, 4, 5]
+  .filter(number => number % 2)
+  .map(number => number * 2);
+
+numbers.forEach(number => console.log(number));  // logs 2, 6, 10
+```
+
+Now in RxJS:
+```TypeScript
+import { of, map } from 'rxjs';
+
+const numbers = of(1, 2, 3, 4, 5).pipe(
+  filter(number => number % 2),
+  map(number => number * 2)
+);
+
+numbers.subscribe(number => console.log(number)); // logs 2, 6, 10
+```
+
+But in reality you'll have a stream of data:
+```TypeScript
+import { Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+
+const subject = new Subject();
+const numbers$ = subject.pipe(
+  filter(number => number % 2),
+  map(number => number * 2)
+);
+
+// no data, logs nothing (similar to Promise)
+numbers$.subscribe(number => console.log(number));
+
+subject.next(1); // logs 2
+subject.next(2);
+subject.next(3); // logs 6
+
+let i = 4;
+setInterval(() => {
+  subject.next(i++);
+}, 1000);
+```
+
+- [Asynchronous Programming tutorial](https://egghead.io/courses/asynchronous-programming-the-end-of-the-loop)
+- [Observables in Angular](https://angular.io/guide/observables-in-angular)
 
 ## Checkpoint 1: Hello Angular
 
@@ -138,8 +190,8 @@ Create new module with routing and one page:
     - update `AppRoutingModule` in `src/app/app-routing.module.ts`:
       - lazy load `UsersModule` on `/users` ([guide](https://angular.io/guide/router#lazy-loading-route-configuration))
       - redirect unknown URLs to `/users` ([guide](https://angular.io/guide/router#configuration))
-4) create `UsersListComponent` ([@Component](https://angular.io/api/core/Comngrx-helpersponent)) files in `src/app/users/users-list/users-list.component.(ts|html)`
-    - don't forget do add new `@Component` to `declations` of our `UsersModule`
+4) create `UsersListComponent` ([@Component](https://angular.io/api/core/Component)) files in `src/app/users/users-list/users-list.component.(ts|html)`
+    - don't forget do add new `@Component` to `declarations` of our `UsersModule`
 6) Add static list of users and render it in `UsersListComponents` in a table
     - `[{ firstName: 'John', lastName: 'Doe' }, ...]`
 
@@ -177,12 +229,12 @@ Let's add another page with user detail:
 5) add `getSkills()` method to `UsersApi`, that will load list of available skills from `/skills`
 6) create `@Component` `UserFormComponent` in `src/app/users/users-form/users-form.component.(ts|html)`
     - use Angular decorators: `@Input()`, `@Output()` ([guide](https://angular.io/guide/component-interaction))
-    - API of our new component: `<app-user-form [user]="user" [skills]="skills" (submit)="onSumit($event: User)">`
+    - API of our new component: `<app-user-form [user]="user" [skills]="skills" (submit)="onSubmit($event)">`
     - render all user's fields (readonly - no form yet, [shape of /users JSON](http://private-e1fc4-reacttraining1.apiary-mock.com/api/v1/users/1)])
 7) create `@Component` `UsersEditComponent` in `src/app/users/users-edit/users-edit.component.(ts|html)`
     - render `UserFormComponent` inside
     - get `id` parameter from `ActivatedRoute` ([API](https://angular.io/api/router/ActivatedRoute), hint: use `.snapshot`)
-    - don't forget do add new `@Component`s to `declations` of our `UsersModule`
+    - don't forget do add new `@Component`s to `declarations` of our `UsersModule`
 8) add `/users/:id` route, render `UsersEditComponent` on it
 9) add `routerLink` from `UsersListComponent` to `UserDetailComponent`  (`/:id`)
 
@@ -219,12 +271,13 @@ Very simplified steps:
 2) add libs:
     - `npm install --save @ngrx/store` ([docs](https://github.com/ngrx/platform/tree/master/docs/store))
     - `npm install --save @ngrx/effects` ([docs](https://github.com/ngrx/platform/tree/master/docs/effects))
+    - `npm install --save @ngrx/store-devtools` ([docs](https://github.com/ngrx/platform/tree/master/docs/store-devtools))
 5) implement simple counter component (with reducer & actions) to show how Redux architecture works
     - `INCREMENT` & `DECREMENT` actions
     - simple reducer that updates counter
     - use selectors to render data
-6) create new effect that will negate you counter action with 1s delay
-7) grab popcorn and watch Redux DevTools
+6) create new effect that will negate your counter action with 1s delay
+7) grab popcorn and watch [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
 ## Checkpoint 5 - Advanced ngrx
 
@@ -307,3 +360,5 @@ Prerequisites:
 # Recomended links
 - [Angular API](https://angular.io/api)
 - [Angular Styleguide](https://angular.io/guide/styleguide)
+- [Angular Cheat Sheet](https://angular.io/guide/cheatsheet)
+- [Learn RxJS](https://www.learnrxjs.io/)
