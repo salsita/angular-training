@@ -119,12 +119,12 @@ class IdeasComponent {
 ```
 
 ### RxJS (Observables)
-- they represent collection (similar to an Arrays) of values in the future (similar to Promises)
+- they represent stream of data (similar to an Array) over time (similar to Promises)
 
 Example: multiply odd numbers by 2 and print them:
 ```TypeScript
 const numbers = [1, 2, 3, 4, 5]
-  .filter(number => number % 2)
+  .filter(number => Boolean(number % 2))
   .map(number => number * 2);
 
 numbers.forEach(number => console.log(number));  // logs 2, 6, 10
@@ -132,10 +132,11 @@ numbers.forEach(number => console.log(number));  // logs 2, 6, 10
 
 Now in RxJS:
 ```TypeScript
-import { of, map } from 'rxjs';
+import { of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 const numbers = of(1, 2, 3, 4, 5).pipe(
-  filter(number => number % 2),
+  filter(number => Boolean(number % 2)),
   map(number => number * 2)
 );
 
@@ -149,7 +150,7 @@ import { filter, map } from 'rxjs/operators';
 
 const subject = new Subject();
 const numbers$ = subject.pipe(
-  filter(number => number % 2),
+  filter(number => Boolean(number % 2)),
   map(number => number * 2)
 );
 
@@ -162,7 +163,7 @@ subject.next(3); // logs 6
 
 let i = 4;
 setInterval(() => {
-  subject.next(i++);
+  subject.next(i++); // logs 10, 14, ...
 }, 1000);
 ```
 
