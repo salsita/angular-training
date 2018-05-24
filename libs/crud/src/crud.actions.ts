@@ -1,4 +1,4 @@
-import { ActionCreatorFactory, actionCreator } from '@angular-training/ngrx-helpers';
+import { ActionCreatorFactory, actionCreator } from '@salsita/ngrx-helpers';
 import { EntitiesFetchedPayload } from './crud.interfaces';
 
 export const crudActionTypes = {

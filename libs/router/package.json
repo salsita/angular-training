@@ -1,8 +1,8 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
-  "name": "@angular-training/router",
-  "description": "Router module for @angular-training",
-  "version": "0.0.0",
+  "name": "@salsita/ng-router",
+  "description": "Router module for @salsita training",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "5.2.6",
     "@angular/core": "5.2.6",

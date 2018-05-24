@@ -1,4 +1,4 @@
-import { ActionCreatorFactory } from '@angular-training/ngrx-helpers';
+import { ActionCreatorFactory } from '@salsita/ngrx-helpers';
 import { User } from '../users.interfaces';
 
 const prefix = 'users';

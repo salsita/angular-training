@@ -1,6 +1,6 @@
-import { apiCall } from '@angular-training/api';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { apiCall } from '@salsita/ng-api';
 
 import { User } from './users.interfaces';
 

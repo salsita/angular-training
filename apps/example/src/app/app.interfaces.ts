@@ -1,7 +1,7 @@
-import { ApiState } from '@angular-training/api';
-import { CrudState } from '@angular-training/crud';
-import { EntityRepositoryState } from '@angular-training/entity-repository';
-import { RouterState } from '@angular-training/router';
+import { ApiState } from '@salsita/ng-api';
+import { CrudState } from '@salsita/ng-crud';
+import { EntityRepositoryState } from '@salsita/ng-entities';
+import { RouterState } from '@salsita/ng-router';
 
 export interface AppState {
   api: ApiState;

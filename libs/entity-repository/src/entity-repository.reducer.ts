@@ -1,4 +1,4 @@
-import { createReducer, reducerType } from '@angular-training/ngrx-helpers';
+import { createReducer, reducerType } from '@salsita/ngrx-helpers';
 import { mergeWith } from 'lodash';
 
 import { entityRepositoryActionTypes } from './entity-repository.actions';

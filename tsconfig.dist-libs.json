@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@angular-training/*": [
+      "@salsita/*": [
         "libs/*/dist"
       ]
     }

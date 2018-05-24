@@ -1,6 +1,6 @@
-import { withLoadingIndicator } from '@angular-training/api';
-import { CrudResolver, CrudService } from '@angular-training/crud';
 import { Injectable } from '@angular/core';
+import { withLoadingIndicator } from '@salsita/ng-api';
+import { CrudResolver, CrudService } from '@salsita/ng-crud';
 
 import { skillSchema } from '../+state/users.schema';
 import { UsersApi } from '../users.api';

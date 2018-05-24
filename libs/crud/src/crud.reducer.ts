@@ -1,4 +1,4 @@
-import { createReducer, reducerType } from '@angular-training/ngrx-helpers';
+import { createReducer, reducerType } from '@salsita/ngrx-helpers';
 import { crudActionTypes } from './crud.actions';
 import { CrudState, EntitiesFetchedPayload } from './crud.interfaces';
 

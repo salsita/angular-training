@@ -1,5 +1,5 @@
-import { ApiSelectors } from '@angular-training/api';
 import { Component } from '@angular/core';
+import { ApiSelectors } from '@salsita/ng-api';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

@@ -1,8 +1,8 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
-import { ApiSelectors } from '@angular-training/api';
-import { MockApiSelectors } from '@angular-training/api/testing';
+import { ApiSelectors } from '@salsita/ng-api';
+import { MockApiSelectors } from '@salsita/ng-api/testing';
 import { ApiErrorToastComponent } from './api-error-toast.component';
 
 describe('ApiErrorToastComponent', () => {

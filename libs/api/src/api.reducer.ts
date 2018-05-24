@@ -1,4 +1,4 @@
-import { createReducer, reducerType } from '@angular-training/ngrx-helpers';
+import { createReducer, reducerType } from '@salsita/ngrx-helpers';
 
 import { apiActionTypes } from './api.actions';
 import { ApiErrorPayload, ApiState } from './api.interfaces';

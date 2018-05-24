@@ -1,10 +1,10 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
-  "name": "@angular-training/api",
-  "description": "API module for @angular-training",
-  "version": "0.0.0",
+  "name": "@salsita/ng-api",
+  "description": "API module for @salsita training",
+  "version": "1.0.0",
   "peerDependencies": {
-    "@angular-training/ngrx-helpers": "0.0.0",
+    "@salsita/ngrx-helpers": "1.0.0",
     "@angular/common": "5.2.6",
     "@angular/core": "5.2.6",
     "@ngrx/store": "5.1.0",
@@ -15,7 +15,7 @@
     "lib": {
       "entryFile": "index.ts",
       "umdModuleIds": {
-        "@angular-training/ngrx-helpers": "ngrxHelpers",
+        "@salsita/ngrx-helpers": "ngrxHelpers",
         "@ngrx/store": "store"
       }
     }

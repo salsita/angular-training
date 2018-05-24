@@ -1,8 +1,8 @@
-import { withLoadingIndicator } from '@angular-training/api';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
+import { withLoadingIndicator } from '@salsita/ng-api';
 import { switchMap } from 'rxjs/operators/switchMap';
 
 import { AppState } from '../../app.interfaces';

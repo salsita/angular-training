@@ -3,9 +3,9 @@ import { Store } from '@ngrx/store';
 import { schema } from 'normalizr';
 import { of } from 'rxjs/observable/of';
 
-import { EntityRepositoryService } from '@angular-training/entity-repository';
-import { RouterSelectors } from '@angular-training/router';
-import { MockRouterSelectors } from '@angular-training/router/testing';
+import { EntityRepositoryService } from '@salsita/ng-entities';
+import { RouterSelectors } from '@salsita/ng-router';
+import { MockRouterSelectors } from '@salsita/ng-router/testing';
 import { crudActionCreators } from './crud.actions';
 import { CrudResolver } from './crud.resolver';
 import { CrudService } from './crud.service';

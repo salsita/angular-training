@@ -1,8 +1,8 @@
 import { Resolve } from '@angular/router';
+import { FlatRouterStateSnapshot } from '@salsita/ng-router';
 import { schema } from 'normalizr';
 import { Observable } from 'rxjs/Observable';
 
-import { FlatRouterStateSnapshot } from '@angular-training/router';
 import { CrudService } from './crud.service';
 
 export abstract class CrudResolver implements Resolve<string | string[]> {

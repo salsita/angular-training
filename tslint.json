@@ -155,9 +155,9 @@
       {
         "lazyLoad": [],
         "allow": [
-          "@angular-training/api/testing",
-          "@angular-training/ngrx-helpers/testing",
-          "@angular-training/router/testing"
+          "@salsita/ng-api/testing",
+          "@salsita/ngrx-helpers/testing",
+          "@salsita/ng-router/testing"
         ]
       }
     ]

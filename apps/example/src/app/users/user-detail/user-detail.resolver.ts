@@ -1,6 +1,6 @@
-import { CrudResolver, CrudService } from '@angular-training/crud';
-import { FlatRouterStateSnapshot } from '@angular-training/router';
 import { Injectable } from '@angular/core';
+import { CrudResolver, CrudService } from '@salsita/ng-crud';
+import { FlatRouterStateSnapshot } from '@salsita/ng-router';
 
 import { userSchema } from '../+state/users.schema';
 import { UsersApi } from '../users.api';

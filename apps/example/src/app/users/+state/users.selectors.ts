@@ -1,9 +1,6 @@
-import { CrudSelectors } from '@angular-training/crud';
-import {
-  EntityRepositorySelectors,
-  SingleEntityRepository
-} from '@angular-training/entity-repository';
 import { Injectable } from '@angular/core';
+import { CrudSelectors } from '@salsita/ng-crud';
+import { EntityRepositorySelectors, SingleEntityRepository } from '@salsita/ng-entities';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 
 import { SkillsResolver } from '../skills/skills.resolver';

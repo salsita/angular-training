@@ -201,14 +201,14 @@ Create new module with routing and one page:
 Prerequisites:
 - add NPM dependencies
   - `npm install --save @ngrx/store` ([docs](https://github.com/ngrx/platform/tree/master/docs/store))
-  - TODO: `@angular-training/(api|ngrx-helpers)`
+  - `npm install --save @salsita/ng-api @salsita/ngrx-helpers`
 
 Load list of users from REST API:
 
 1) Import required `@NgModule`s to `AppModule`:
     - [StoreModule.forRoot({})](https://github.com/ngrx/platform/tree/master/docs/store) from `@ngrx/store` (dependency of `ApiModule`)
     - [HttpClientModule](https://angular.io/api/common/http/HttpClientModule) from `@angular/common/http` (our REST client)
-    - `ApiModule` from `@angular-training/api` (it configures `HttpClientModule` for us)
+    - `ApiModule` from `@salsita/ng-api` (it configures `HttpClientModule` for us)
 ```TypeScript
 ApiModule.forRoot({
   baseUrl: 'http://private-e1fc4-reacttraining1.apiary-mock.com/api/v1',
@@ -286,7 +286,7 @@ Prerequisites:
     - add NPM dependencies
       - `normalizr` ([readme](https://github.com/paularmstrong/normalizr))
       - `@ngrx/effects` ([docs](https://github.com/ngrx/platform/tree/master/docs/effects))
-      - TODO `@angular-training/router` + `@ngrx/router-store` ([docs](https://github.com/ngrx/platform/tree/master/docs/router-store))
+      - `@salsita/ng-router` + `@ngrx/router-store` ([docs](https://github.com/ngrx/platform/tree/master/docs/router-store))
 
 In the end we'll use `Crud`/`EntityRepository` modules to do the work for us so we won't need any store for our `UsersModule`, but to practice we'll implement this manually first.
 
@@ -343,11 +343,11 @@ We should also refactor how user is saved. The logic should not stay in `UserEdi
 
 ## Checkpoint 6 - Rewrite
 
-Let's refactor the app - use `CrudModule` & `EntityRepositoryModule` & `RouterModule` (from `@angular-training/router`).
+Let's refactor the app - use `CrudModule` & `EntityRepositoryModule` & `RouterModule` (from `@salsita/ng-router`).
 
 Prerequisites:
 - add NPM dependencies
-  - TODO: `@angular-training/(crud|entity-repository|router)`
+  - `@salsita/ng-crud @salsita/ng-entities @salsita/ng-router`
 
 1) import all 3 modules to `AppModule`
 2) rewrite all resolvers to use `CrudResolver` from `CrudModule`

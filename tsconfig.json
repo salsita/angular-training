@@ -20,7 +20,7 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-training/*": [
+      "@salsita/*": [
         "libs/*"
       ]
     }

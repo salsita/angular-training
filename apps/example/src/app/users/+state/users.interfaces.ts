@@ -1,4 +1,4 @@
-import { CrudState } from '@angular-training/crud';
+import { CrudState } from '@salsita/ng-crud';
 
 export interface UsersCrudState extends CrudState {
   users: {
