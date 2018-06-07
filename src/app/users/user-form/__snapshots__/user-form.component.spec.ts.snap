@@ -1,0 +1,427 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserFormComponent should add skill 1`] = `
+<app-user-form
+  form={[Function FormGroup]}
+  formBuilder={[Function FormBuilder]}
+  skills={[Function Array]}
+  submit={[Function EventEmitter]}
+  user={[Function Object]}
+>
+  <form
+    class="ng-untouched ng-pristine ng-valid"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    
+    
+    <app-form-field
+      label="First Name"
+    />
+    
+    
+    <app-form-field
+      label="Last Name"
+    />
+    
+    
+    <app-form-field
+      label="E-mail"
+    />
+    
+  
+    
+    <h2>
+      Skills
+    </h2>
+    
+    
+    
+    <ul>
+      
+      
+      
+      <li
+        class="ng-untouched ng-pristine ng-valid"
+        formarrayname="skills"
+        ng-reflect-name="skills"
+      >
+        
+        
+        <select
+          class="ng-untouched ng-pristine ng-valid"
+          ng-reflect-name="0"
+        >
+          
+          
+          
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="0: Object"
+          >
+            JavaScript
+          </option>
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="1: Object"
+          >
+            PostgreSQL
+          </option>
+          
+        
+        </select>
+        
+        
+        <button>
+          x
+        </button>
+        
+      
+      </li>
+      <li
+        class="ng-untouched ng-pristine ng-valid"
+        formarrayname="skills"
+        ng-reflect-name="skills"
+      >
+        
+        
+        <select
+          class="ng-untouched ng-pristine ng-valid"
+          ng-reflect-name="1"
+        >
+          
+          
+          
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="0: Object"
+          >
+            JavaScript
+          </option>
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="1: Object"
+          >
+            PostgreSQL
+          </option>
+          
+        
+        </select>
+        
+        
+        <button>
+          x
+        </button>
+        
+      
+      </li>
+      <li
+        class="ng-untouched ng-pristine ng-valid"
+        formarrayname="skills"
+        ng-reflect-name="skills"
+      >
+        
+        
+        <select
+          class="ng-untouched ng-pristine ng-valid"
+          ng-reflect-name="2"
+        >
+          
+          
+          
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="0: Object"
+          >
+            JavaScript
+          </option>
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="1: Object"
+          >
+            PostgreSQL
+          </option>
+          
+        
+        </select>
+        
+        
+        <button>
+          x
+        </button>
+        
+      
+      </li>
+      
+    
+    </ul>
+    
+    
+    <button
+      type="button"
+    >
+      Add skill
+    </button>
+    
+    
+    <br />
+    
+    
+    <button
+      type="submit"
+    >
+      Save
+    </button>
+    
+  
+  </form>
+  
+</app-user-form>
+`;
+
+exports[`UserFormComponent should remove skill 1`] = `
+<app-user-form
+  form={[Function FormGroup]}
+  formBuilder={[Function FormBuilder]}
+  skills={[Function Array]}
+  submit={[Function EventEmitter]}
+  user={[Function Object]}
+>
+  <form
+    class="ng-untouched ng-pristine ng-valid"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    
+    
+    <app-form-field
+      label="First Name"
+    />
+    
+    
+    <app-form-field
+      label="Last Name"
+    />
+    
+    
+    <app-form-field
+      label="E-mail"
+    />
+    
+  
+    
+    <h2>
+      Skills
+    </h2>
+    
+    
+    
+    <ul>
+      
+      
+      
+      <li
+        class="ng-untouched ng-pristine ng-valid"
+        formarrayname="skills"
+        ng-reflect-name="skills"
+      >
+        
+        
+        <select
+          class="ng-untouched ng-pristine ng-valid"
+          ng-reflect-name="0"
+        >
+          
+          
+          
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="0: Object"
+          >
+            JavaScript
+          </option>
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="1: Object"
+          >
+            PostgreSQL
+          </option>
+          
+        
+        </select>
+        
+        
+        <button>
+          x
+        </button>
+        
+      
+      </li>
+      
+    
+    </ul>
+    
+    
+    <button
+      type="button"
+    >
+      Add skill
+    </button>
+    
+    
+    <br />
+    
+    
+    <button
+      type="submit"
+    >
+      Save
+    </button>
+    
+  
+  </form>
+  
+</app-user-form>
+`;
+
+exports[`UserFormComponent should render user form 1`] = `
+<app-user-form
+  form={[Function FormGroup]}
+  formBuilder={[Function FormBuilder]}
+  skills={[Function Array]}
+  submit={[Function EventEmitter]}
+  user={[Function Object]}
+>
+  <form
+    class="ng-untouched ng-pristine ng-valid"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    
+    
+    <app-form-field
+      label="First Name"
+    />
+    
+    
+    <app-form-field
+      label="Last Name"
+    />
+    
+    
+    <app-form-field
+      label="E-mail"
+    />
+    
+  
+    
+    <h2>
+      Skills
+    </h2>
+    
+    
+    
+    <ul>
+      
+      
+      
+      <li
+        class="ng-untouched ng-pristine ng-valid"
+        formarrayname="skills"
+        ng-reflect-name="skills"
+      >
+        
+        
+        <select
+          class="ng-untouched ng-pristine ng-valid"
+          ng-reflect-name="0"
+        >
+          
+          
+          
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="0: Object"
+          >
+            JavaScript
+          </option>
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="1: Object"
+          >
+            PostgreSQL
+          </option>
+          
+        
+        </select>
+        
+        
+        <button>
+          x
+        </button>
+        
+      
+      </li>
+      <li
+        class="ng-untouched ng-pristine ng-valid"
+        formarrayname="skills"
+        ng-reflect-name="skills"
+      >
+        
+        
+        <select
+          class="ng-untouched ng-pristine ng-valid"
+          ng-reflect-name="1"
+        >
+          
+          
+          
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="0: Object"
+          >
+            JavaScript
+          </option>
+          <option
+            ng-reflect-ng-value="[object Object]"
+            value="1: Object"
+          >
+            PostgreSQL
+          </option>
+          
+        
+        </select>
+        
+        
+        <button>
+          x
+        </button>
+        
+      
+      </li>
+      
+    
+    </ul>
+    
+    
+    <button
+      type="button"
+    >
+      Add skill
+    </button>
+    
+    
+    <br />
+    
+    
+    <button
+      type="submit"
+    >
+      Save
+    </button>
+    
+  
+  </form>
+  
+</app-user-form>
+`;

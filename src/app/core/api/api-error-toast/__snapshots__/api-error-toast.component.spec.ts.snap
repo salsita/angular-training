@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApiErrorToastComponent should render no error by default 1`] = `
+<app-api-error-toast
+  error$={[Function Observable]}
+>
+  
+  
+</app-api-error-toast>
+`;
+
+exports[`ApiErrorToastComponent should render some error 1`] = `
+<app-api-error-toast
+  error$={[Function Observable]}
+>
+  <div>
+    
+    Some error
+  
+  </div>
+  
+</app-api-error-toast>
+`;

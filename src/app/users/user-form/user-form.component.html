@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (submit)="$event.stopPropagation()">
+  <app-form-field label="First Name" [control]="form.get('firstName')"></app-form-field>
+  <app-form-field label="Last Name" [control]="form.get('lastName')"></app-form-field>
+  <app-form-field label="E-mail" [control]="form.get('email')"></app-form-field>
+
+  <h2>Skills</h2>
+  <ul *ngIf="form">
+    <li formArrayName="skills" *ngFor="let skillControl of form.get('skills').controls; let i = index">
+      <select [formControlName]="i">
+        <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.skill}}</option>
+      </select>
+      <button (click)="removeSkill(i)">x</button>
+    </li>
+  </ul>
+  <button type="button" (click)="addSkill()">Add skill</button>
+  <br>
+  <button type="submit" [disabled]="!form.valid">Save</button>
+</form>

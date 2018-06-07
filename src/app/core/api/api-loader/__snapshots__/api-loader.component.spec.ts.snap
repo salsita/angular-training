@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApiLoaderComponent should render disabled loader by 1`] = `
+<app-api-loader
+  isLoading$={[Function Observable]}
+>
+  
+  
+</app-api-loader>
+`;
+
+exports[`ApiLoaderComponent should render enabled loader 1`] = `
+<app-api-loader
+  isLoading$={[Function Observable]}
+>
+  <div>
+    
+    Loading...
+  
+  </div>
+  
+</app-api-loader>
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDetailComponent should render user form 1`] = `
+<app-user-detail
+  skills$={[Function Observable]}
+  store={[Function Function]}
+  user$={[Function Observable]}
+>
+  <app-user-form />
+  
+  
+</app-user-detail>
+`;
