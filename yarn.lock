@@ -235,6 +235,36 @@
   dependencies:
     jasmine-marbles "0.2.0"
 
+"@salsita/ng-api@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@salsita/ng-api/-/ng-api-1.0.1.tgz#d830b451f98567fb6c4ce567ff04b4d7dc94f15f"
+  dependencies:
+    tslib "^1.7.1"
+
+"@salsita/ng-crud@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@salsita/ng-crud/-/ng-crud-1.0.0.tgz#3a7cd6c264341e8411aeb17dd28b869f152711e6"
+  dependencies:
+    tslib "^1.7.1"
+
+"@salsita/ng-entities@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@salsita/ng-entities/-/ng-entities-1.0.0.tgz#dcc01a3aea6eebfb0fe814e69079e5a0c2d42021"
+  dependencies:
+    tslib "^1.7.1"
+
+"@salsita/ng-router@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@salsita/ng-router/-/ng-router-1.0.0.tgz#f2094aadd2efde7f2e5c3dab701c457f1c2512a3"
+  dependencies:
+    tslib "^1.7.1"
+
+"@salsita/ngrx-helpers@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@salsita/ngrx-helpers/-/ngrx-helpers-1.0.0.tgz#6e45ee76393673c7597a2274c2a06523c3f0b6ed"
+  dependencies:
+    tslib "^1.7.1"
+
 "@schematics/angular@0.6.7":
   version "0.6.7"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.6.7.tgz#21e74f4e9ce3854923b347e97f30a285b3c22fe7"
